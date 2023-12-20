@@ -77,7 +77,7 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
     ]);
   }
 };
-export const postProduct = async obj => {
+export const postProduct = async (obj, getAllProduct) => {
   console.log("postProduct", obj);
   try {
     const res = await axios.post(`${path}`, obj);
@@ -86,6 +86,7 @@ export const postProduct = async obj => {
     console.log(st);
     if (st.charAt(0) === "2") {
       alert("등록에 성공했습니다.");
+      getAllProduct();
     } else if (st.charAt(0) === "4") {
       alert("입력항목을 확인해 주세요.");
     }

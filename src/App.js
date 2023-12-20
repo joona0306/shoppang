@@ -8,13 +8,12 @@ import Event from "./pages/event/Event";
 import Mart from "./pages/mart/Mart";
 import { Wrap } from "./styles/LayoutStyles";
 
-
 const App = () => {
   return (
     <Wrap maxw={1440}>
       <Routes>
         <Route path="*" element={<h1>404</h1>}></Route>
-        <Route path="/" element={<CartAll />}></Route>
+        <Route path="/" element={<About />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/cart/cartall" element={<CartAll />}></Route>
         <Route path="/cart/cartplan" element={<CartPlan />}></Route>
