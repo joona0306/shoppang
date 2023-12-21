@@ -12,6 +12,7 @@ import {
 } from "../../styles/LayoutStyles";
 import { getProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
+import { CardContainer } from "../../styles/ComponentsStyles";
 const initPlanData = [];
 const CartCompleted = () => {
   const [data, setData] = useState([]);
@@ -48,11 +49,11 @@ const CartCompleted = () => {
             <BtnList />
             <BtnComplete />
           </ContainerStyle>
-          <div>
+          <CardContainer>
             {planData.map(item => (
               <CardComplete key={item.productPk} item={item} />
             ))}
-          </div>
+          </CardContainer>
         </PageLayoutStyle>
       </Main>
     </>

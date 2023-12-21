@@ -13,6 +13,7 @@ import {
   PageLayoutStyle,
   TitleStyle,
 } from "../../styles/LayoutStyles";
+import { CardContainer } from "../../styles/ComponentsStyles";
 
 const initPlanData = [];
 const CartPlan = () => {
@@ -61,16 +62,14 @@ const CartPlan = () => {
             <BtnList>
               <div onClick={handleClickPlanGet}></div>
             </BtnList>
-            <BtnComplete>
-              <div onClick={handleClickPlanGet}></div>
-            </BtnComplete>
+            <BtnComplete></BtnComplete>
             <CartAddEdit btnAct="등록하기" handleClick={handleClickPlanGet} />
           </ContainerStyle>
-          <div>
+          <CardContainer>
             {planData.map(item => (
               <CardForm key={item.productPk} item={item} />
             ))}
-          </div>
+          </CardContainer>
         </PageLayoutStyle>
       </Main>
     </>

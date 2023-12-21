@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AboutStyle, BasketStyle, EventStyle, LoginStyle, ShoppingStyle, SideBarStyle, SideBarWrapStyle } from "../../styles/ComponentsStyles";
-
+import {
+  AboutStyle,
+  BasketStyle,
+  EventStyle,
+  LoginStyle,
+  ShoppingStyle,
+  SideBarStyle,
+  SideBarWrapStyle,
+} from "../../styles/ComponentsStyles";
 
 const SideBar = () => {
   // const [isHovered, setIsHovered] = useState(false) ;

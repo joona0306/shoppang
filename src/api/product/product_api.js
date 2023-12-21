@@ -110,9 +110,11 @@ export const patchProduct = async () => {
     console.log(error);
   }
 };
-export const deleteProduct = async () => {
+export const deleteProduct = async (userPk, productPk) => {
   try {
-    const res = await axios.delete(`${path}`);
+    const res = await axios.delete(
+      `${path}?userPk=${userPk}&productPk=${productPk}`,
+    );
     console.log(res.data);
   } catch (error) {
     console.log(error);

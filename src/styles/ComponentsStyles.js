@@ -1,13 +1,30 @@
 import styled from "@emotion/styled";
 import { Common } from "./LayoutStyles";
 
-
 // Card Component Style
+export const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+`;
+
 export const CardBox = styled.div`
-  position: relative;
+  /* .container {
+    width: 100%;
+  }
+  .element {
+    width: 50%; 
+  }
+  .element {
+    width: 50vw;
+    height: 30vh;
+  } */
+
+  flex-direction: column;
   width: 328px;
   height: 180px;
-  margin: 32px 40px 0px 0;
+  margin: 32px 0px 0px 0px;
   border: 1px solid ${Common.color.g600};
   border-radius: 8px;
   cursor: pointer;
@@ -50,12 +67,12 @@ export const Category = styled.p`
   color: #757575;
 `;
 export const Memo = styled.p`
-  padding: 10px 16px 0px 16px;
+  padding: 10px 16px 24px 16px;
 
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 
   font-size: 14px;
@@ -106,8 +123,8 @@ export const HeaderTopBarStyle = styled.div`
   .top-left {
     display: flex;
     align-items: center;
-    gap: 5px;    
-    
+    gap: 5px;
+
     img {
       width: 68px;
       cursor: pointer;
@@ -121,7 +138,7 @@ export const HeaderTopBarStyle = styled.div`
     }
   }
   .top-right {
-    display: flex;    
+    display: flex;
     align-items: center;
     gap: 6px;
     img {
@@ -187,7 +204,6 @@ export const CartModalStyle = styled.div`
     font-size: 16px;
   }
 
-  
   button {
     position: relative;
     margin-left: 237px;
@@ -253,7 +269,6 @@ export const AboutStyle = styled.div`
       height: 20px;
       opacity: 35%;
     }
-
   }
 `;
 export const BasketStyle = styled.div`

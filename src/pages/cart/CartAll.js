@@ -13,6 +13,7 @@ import {
 } from "../../styles/LayoutStyles";
 import CardForm from "../../components/card/CardForm";
 import CardComplete from "../../components/card/CardComplete";
+import { CardContainer } from "../../styles/ComponentsStyles";
 const initPlanData = [];
 const CartAll = () => {
   const [data, setData] = useState([]);
@@ -75,7 +76,7 @@ const CartAll = () => {
             <BtnList />
             <BtnComplete />
           </ContainerStyle>
-          <div>{showList()}</div>
+          <CardContainer>{showList()}</CardContainer>
         </PageLayoutStyle>
       </Main>
     </>
