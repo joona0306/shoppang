@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { Common } from "./LayoutStyles";
 
-
 // Card Component Style
 export const CardBox = styled.div`
   position: relative;
@@ -106,8 +105,8 @@ export const HeaderTopBarStyle = styled.div`
   .top-left {
     display: flex;
     align-items: center;
-    gap: 5px;    
-    
+    gap: 5px;
+
     img {
       width: 68px;
       cursor: pointer;
@@ -121,7 +120,7 @@ export const HeaderTopBarStyle = styled.div`
     }
   }
   .top-right {
-    display: flex;    
+    display: flex;
     align-items: center;
     gap: 6px;
     img {
@@ -187,10 +186,9 @@ export const CartModalStyle = styled.div`
     font-size: 16px;
   }
 
-  
   button {
     position: relative;
-    margin-left: 237px;
+    /* margin-left: 237px; */
     width: 90px;
     height: 34px;
   }
@@ -253,7 +251,6 @@ export const AboutStyle = styled.div`
       height: 20px;
       opacity: 35%;
     }
-
   }
 `;
 export const BasketStyle = styled.div`
