@@ -1,25 +1,13 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
 import {
-  AboutStyle,
-  BasketStyle,
-  EventStyle,
   LoginStyle,
   MenuStyle,
   SelectMenu,
-  ShoppingStyle,
   SideBarStyle,
   SideBarWrapStyle,
 } from "../../styles/ComponentsStyles";
 
 const SideBar = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const navigate = useNavigate();
-  const handleClick = () => {
-    setIsActive(!isActive);
-  };
-
   return (
     <>
       <SideBarStyle>
