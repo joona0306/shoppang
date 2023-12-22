@@ -1,25 +1,24 @@
 import React, { useState } from "react";
+import { AddBtnStyles } from "../../styles/LayoutStyles";
 import Modal from "./Modal";
-import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
-const CartAddEdit = ({ btnAct, handleClick, btn }) => {
-  console.log("CartAddEdit", handleClick);
+const CartAdd = props => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <SmallBtnStyles onClick={openModal}>{btnAct}</SmallBtnStyles>
+      <AddBtnStyles onClick={openModal}>{props.btnAct}</AddBtnStyles>
       <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        btnAct={btnAct}
-        handleClick={handleClick}
+        btnAct={props.btnAct}
+        handleClick={props.handleClick}
       >
-        {btn}
+        {props.btn}
       </Modal>
     </>
   );
 };
 
-export default CartAddEdit;
+export default CartAdd;

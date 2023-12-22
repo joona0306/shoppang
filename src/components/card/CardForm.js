@@ -43,20 +43,22 @@ const CardForm = ({ item }) => {
   };
 
   return (
-    <CardContainer style={{ pointerEvents: "none" }}>
-      <CardBox onClick={handleCardFormClick}>
-        <Heading>{item.productNm}</Heading>
-        <Category>{item.categoryNm}</Category>
-        <Memo>{item.memo}</Memo>
-        <CardFormBtn
-          onClick={preventButtonClick}
-          style={{ pointerEvents: "auto" }}
-        >
-          <BtnEdit item={item} onClick={handleEdit} />
-          <BtnDel onClick={handleDelete} />
-        </CardFormBtn>
-      </CardBox>
-    </CardContainer>
+    <>
+      <CardContainer style={{ pointerEvents: "none" }}>
+        <CardBox onClick={handleCardFormClick}>
+          <Heading>{item.productNm}</Heading>
+          <Category>{item.categoryNm}</Category>
+          <Memo>{item.memo}</Memo>
+          <CardFormBtn
+            onClick={preventButtonClick}
+            style={{ pointerEvents: "auto" }}
+          >
+            <BtnEdit item={item} onClick={handleEdit} />
+            <BtnDel onClick={handleDelete} />
+          </CardFormBtn>
+        </CardBox>
+      </CardContainer>
+    </>
   );
 };
 
