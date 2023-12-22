@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 import Modal from "../modal/Modal";
 
-const BtnEdit = ({ productNm, categoryPk, memo }) => {
+const BtnEdit = ({ item, onClick }) => {
+  console.log("아이템", item);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -21,10 +22,9 @@ const BtnEdit = ({ productNm, categoryPk, memo }) => {
       <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        productNm={productNm}
-        categoryPk={categoryPk}
-        memo={memo}
-      />
+        item={item}
+        handleClick={onClick}
+      ></Modal>
     </>
   );
 };

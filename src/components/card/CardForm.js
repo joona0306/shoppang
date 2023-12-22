@@ -11,6 +11,7 @@ import {
 } from "../../styles/ComponentsStyles";
 import BtnDel from "./BtnDel";
 import BtnEdit from "./BtnEdit";
+import { putProduct } from "../../api/product/product_api";
 
 const CardForm = ({ item }) => {
   const navigate = useNavigate();
@@ -26,16 +27,17 @@ const CardForm = ({ item }) => {
   };
 
   const handleDelete = event => {
-    event.stopPropagation();
     console.log("Delete Clicked");
   };
 
-  const handleEdit = event => {
-    event.stopPropagation();
-    console.log("Edit Clicked");
+  const handleEdit = async (productPk, userPk, categoryPk, productNm, memo) => {
+    const payload = { userPk, productNm, categoryPk, memo, productPk };
+    console.log(payload);
+    await putProduct(payload);
+
+    // console.log("Edit Clicked", productNm, categoryPk);
   };
 
-  // Prevent propagation of click events from the CardForm to the buttons
   const preventButtonClick = event => {
     event.stopPropagation();
   };
@@ -50,7 +52,7 @@ const CardForm = ({ item }) => {
           onClick={preventButtonClick}
           style={{ pointerEvents: "auto" }}
         >
-          <BtnEdit onClick={handleEdit} />
+          <BtnEdit item={item} onClick={handleEdit} />
           <BtnDel onClick={handleDelete} />
         </CardFormBtn>
       </CardBox>

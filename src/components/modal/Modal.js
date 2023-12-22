@@ -6,16 +6,19 @@ import {
 } from "../../styles/ComponentsStyles";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
-const Modal = ({ isOpen, closeModal, children, btnAct, handleClick }) => {
+const Modal = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
   if (!isOpen) {
     return null;
   }
-  const [productNm, setPrductNm] = useState("");
-  const [categoryPk, setCategoryPk] = useState("");
-  const [memo, setMemo] = useState("");
+  const [productNm, setPrductNm] = useState(item?.productNm);
+  const [categoryPk, setCategoryPk] = useState(item?.categoryPk);
+  const [memo, setMemo] = useState(item?.memo);
+  const [userPk, setUserPk] = useState(1);
   const handleChage = e => {
     const targetName = e.target.name;
+    const integerCatePk = parseInt(categoryPk);
     const value = e.target.value;
+    setCategoryPk(integerCatePk);
     // console.log(value);
     if (targetName === "product") {
       setPrductNm(value);
@@ -25,6 +28,11 @@ const Modal = ({ isOpen, closeModal, children, btnAct, handleClick }) => {
       setMemo(value);
     }
   };
+  const handleAdd = () => {
+    handleClick(item?.productPk, userPk, categoryPk, productNm, memo);
+    closeModal();
+  };
+  console.log("modal", productNm, categoryPk, memo);
   return (
     <ModalBackStyle style={{ display: isOpen ? "block" : "none" }}>
       <CartModalStyle>
@@ -50,7 +58,7 @@ const Modal = ({ isOpen, closeModal, children, btnAct, handleClick }) => {
           <option value={3}>식료품</option>
         </select>
         <input
-          placeholder="메모를 입력해주세요"
+          placeholder="를 입력해주세요"
           name="memo"
           value={memo}
           onChange={e => {
@@ -58,11 +66,8 @@ const Modal = ({ isOpen, closeModal, children, btnAct, handleClick }) => {
           }}
         />
         {/* 추가 기능 및 글자출력 */}
-        <SmallBtnStyles
-          onClick={() => handleClick(productNm, categoryPk, memo)}
-        >
-          등록하기
-        </SmallBtnStyles>
+        <SmallBtnStyles onClick={() => handleAdd()}>등록하기</SmallBtnStyles>
+
         <SmallBtnStyles onClick={closeModal}>취소하기</SmallBtnStyles>
       </CartModalStyle>
     </ModalBackStyle>

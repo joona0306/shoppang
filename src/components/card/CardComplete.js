@@ -12,7 +12,7 @@ import {
 } from "../../styles/ComponentsStyles";
 import BtnDel from "./BtnDel";
 
-const CardComplete = () => {
+const CardComplete = ({ item }) => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
 
@@ -36,9 +36,9 @@ const CardComplete = () => {
         <CardEnd>
           {/* DateText: 카드폼 위에 현재 날짜 표시 */}
           <DateText>{getCurrentDate()}</DateText>
-          <Heading>{productNm}</Heading>
-          <Category>{categoryNm}</Category>
-          <Memo>{memo}</Memo>
+          <Heading>{item.productNm}</Heading>
+          <Category>{item.categoryNm}</Category>
+          <Memo>{item.memo}</Memo>
         </CardEnd>
         <CardCompleteBtn>
           <BtnDel />

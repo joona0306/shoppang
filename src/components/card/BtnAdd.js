@@ -1,7 +1,6 @@
 import React from "react";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
-
 const BtnAdd = ({ onAddCard, margin }) => {
   const handleAddCard = () => {
     onAddCard();

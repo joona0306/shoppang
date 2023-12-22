@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
-
-const CartAddEdit = props => {
+const CartAddEdit = ({ btnAct, handleClick, btn }) => {
+  console.log("CartAddEdit", handleClick);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <SmallBtnStyles onClick={openModal}>{props.btnAct}</SmallBtnStyles>
+      <SmallBtnStyles onClick={openModal}>{btnAct}</SmallBtnStyles>
       <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        btnAct={props.btnAct}
-        handleClick={props.handleClick}
+        btnAct={btnAct}
+        handleClick={handleClick}
       >
-        {props.btn}
+        {btn}
       </Modal>
     </>
   );
