@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Common } from "./LayoutStyles";
+import { NavLink } from "react-router-dom";
 
 // Card Component Style
 export const CardBox = styled.div`
@@ -14,8 +15,10 @@ export const CardBox = styled.div`
 export const CardEnd = styled.div`
   position: relative;
   height: 115px;
+
   background: #a8a8a8;
   opacity: 0.4;
+
   border-radius: 8px 8px 0px 0px;
 `;
 export const DateText = styled.div`
@@ -23,6 +26,7 @@ export const DateText = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   font-size: 42px;
   font-weight: 700;
   line-height: 50px;
@@ -64,6 +68,7 @@ export const Memo = styled.p`
 export const CardFormBtn = styled.div`
   display: flex;
   gap: 12px;
+
   padding: 12px 0px 0px 16px;
 `;
 export const CardCompleteBtn = styled.div`
@@ -187,8 +192,15 @@ export const CartModalStyle = styled.div`
     /* margin-left: 237px; */
     width: 90px;
     height: 34px;
+    margin-left: 10px;
   }
 `;
+export const ModalBtnsStyle = styled.div`
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+`;
+
 export const ModalBackStyle = styled.div`
   position: fixed;
   top: 0;
@@ -203,131 +215,7 @@ export const ModalBackStyle = styled.div`
 `;
 
 // SideBar Component Style
-export const AboutStyle = styled.div`
-  position: relative;
-  width: 220px;
-  height: auto;
-  padding: 16px;
 
-  p {
-    position: relative;
-    color: #666;
-  }
-  li {
-    position: relative;
-    width: 195px;
-    height: auto;
-    border-radius: 8px;
-    cursor: pointer;
-
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-
-      span {
-        position: relative;
-        /* display: block; */
-        /* align-items: center; */
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
-    }
-
-    img {
-      width: 20px;
-      height: 20px;
-      opacity: 35%;
-    }
-  }
-`;
-export const BasketStyle = styled.div`
-  position: relative;
-  width: 220px;
-  height: auto;
-  padding: 16px;
-  p {
-    position: relative;
-    color: #666;
-  }
-  li {
-    position: relative;
-    cursor: pointer;
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
-    }
-
-    img {
-      width: 20px;
-      height: 20px;
-      opacity: 35%;
-    }
-  }
-`;
-export const EventStyle = styled.div`
-  position: relative;
-  width: 220px;
-  height: auto;
-  padding: 16px;
-  p {
-    position: relative;
-    color: #666;
-  }
-  li {
-    position: relative;
-    cursor: pointer;
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
-    }
-    img {
-      width: 20px;
-      height: 20px;
-      opacity: 35%;
-    }
-  }
-`;
 export const LoginStyle = styled.div`
   position: relative;
   width: 220px;
@@ -350,41 +238,62 @@ export const LoginStyle = styled.div`
     cursor: pointer;
   }
 `;
-export const ShoppingStyle = styled.div`
+export const MenuStyle = styled.div`
   position: relative;
   width: 220px;
   height: auto;
   padding: 16px;
+
   p {
     position: relative;
     color: #666;
   }
   li {
     position: relative;
+    width: 195px;
+    height: auto;
+    border-radius: 8px;
     cursor: pointer;
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
+
+    /* opacity: 35%; */
+
+    span {
+      position: relative;
+      z-index: 1;
+      margin-left: 16px;
     }
     img {
+      position: relative;
+      left: 16px;
       width: 20px;
       height: 20px;
       opacity: 35%;
+    }
+  }
+`;
+export const SelectMenu = styled(NavLink)`
+  position: absolute;
+  display: flex;
+  width: 195px;
+  height: 32px;
+  border-radius: 8px;
+  left: -16px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+
+  &:hover {
+    background-color: #dddd;
+    img {
+      z-index: 1;
+      opacity: 100%;
+    }
+  }
+  &.active {
+    background-color: #dddd;
+    img {
+      z-index: 1;
+      opacity: 100%;
     }
   }
 `;
@@ -395,9 +304,9 @@ export const SideBarStyle = styled.section`
 `;
 export const SideBarWrapStyle = styled.div`
   position: fixed;
-  width: 15%;
+  width: 220px;
   height: 100%;
-  margin-left: 60px;
+  margin-left: 25px;
   font-size: 14px;
   border-right: 1px solid ${Common.color.g600};
 

@@ -8,7 +8,7 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
     const res = await axios.get(
       `${path}?userPk=${userPk}&choiceList=${choiceList}`,
     );
-    console.log(res.data);
+    // console.log(res.data);
     setPlanData(res.data);
   } catch (error) {
     console.log(error);
@@ -78,12 +78,12 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
   }
 };
 export const postProduct = async (obj, getAllProduct) => {
-  console.log("postProduct", obj);
+  // console.log("postProduct", obj);
   try {
     const res = await axios.post(`${path}`, obj);
-    console.log(res.data);
+    // console.log(res.data);
     const st = res.status.toString();
-    console.log(st);
+    // console.log(st);
     if (st.charAt(0) === "2") {
       alert("등록에 성공했습니다.");
       getAllProduct();
@@ -97,7 +97,7 @@ export const postProduct = async (obj, getAllProduct) => {
 export const putProduct = async () => {
   try {
     const res = await axios.put(`${path}`);
-    console.log(res.data);
+    // console.log(res.data);
   } catch (error) {
     console.log(error);
   }
