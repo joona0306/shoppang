@@ -36,9 +36,10 @@ export const Wrap = styled.div`
 export const PageLayoutStyle = styled.div`
   position: relative;
   width: 100%;
-  padding: 28px 66px;
-  margin-left: 40px;
-  
+  /* margin: 0 auto; */
+  margin-left: 10%;
+  /* margin-right: 5%; */
+  margin-top: 30px;
 `;
 
 export const TitleStyle = styled.div`
@@ -87,8 +88,8 @@ export const LargeBtnStyles = styled.button`
 `;
 
 export const SmallBtnStyles = styled.button`
-  width: 80px;  
-  height: 37px;  
+  width: 80px;
+  height: 37px;
   border-radius: 18px;
   border: 1px solid ${Common.color.g600};
   background-color: #fff;
@@ -117,32 +118,32 @@ export const ContainerStyle = styled.div`
 `;
 
 export const AboutInfoStyle = styled.div`
-    .about-txet {
-      display: flex;
-      margin-bottom: 60px;
-    }
-    p {
-      width: 312px;
-      height: 63px;
-      font-size: 2rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px;
-    }
-    .about-txet-img {
-      width: 642px;
-      height: 360px;
-      margin-left: 95px;
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    img {
-      position: relative;
-      width: 100%;
-    }
-  `;
+  .about-txet {
+    display: flex;
+    margin-bottom: 60px;
+  }
+  p {
+    width: 312px;
+    height: 63px;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .about-txet-img {
+    width: 642px;
+    height: 360px;
+    margin-left: 95px;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    position: relative;
+    width: 100%;
+  }
+`;
 
 // event page style
 export const CardBut = styled.div`
@@ -162,8 +163,8 @@ export const CardBut = styled.div`
   }
 `;
 export const CardText = styled.div`
-position: relative;
-padding: 16px;
+  position: relative;
+  padding: 16px;
 `;
 export const CardTop = styled.div`
   position: relative;
@@ -172,7 +173,7 @@ export const CardTop = styled.div`
 `;
 export const ContentCard = styled.div`
   position: relative;
-  display: flex;  
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   ul {
@@ -209,9 +210,9 @@ export const ContentCard = styled.div`
 export const GoodDay = styled.div`
   position: relative;
   display: flex;
-  width: 100%;  
+  width: 100%;
   gap: 25px;
-  height: auto;  
+  height: auto;
   margin-top: 80px;
 `;
 
@@ -220,12 +221,12 @@ export const Store = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   gap: 50px;
 `;
 export const CardString = styled.div`
   position: relative;
-  padding: 16px 30px;  
+  padding: 16px 30px;
 `;
 export const ContentLeft = styled.div`
   position: relative;
