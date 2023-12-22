@@ -9,6 +9,7 @@ import {
   ContainerStyle,
   PageLayoutStyle,
   TitleStyle,
+  UiIconStyle,
 } from "../../styles/LayoutStyles";
 import { getProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
@@ -24,9 +25,9 @@ const CartCompleted = () => {
   const handleClickGet = () => {
     getProduct(1, setData);
   };
-  console.log(handleClickGet);
+  // console.log(handleClickGet);
   const getAllProduct = () => {
-    console.log("구매확정 목록 불러왔다.");
+    // console.log("구매확정 목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
   };
 
@@ -40,13 +41,20 @@ const CartCompleted = () => {
         <SideBar />
         <PageLayoutStyle>
           <TitleStyle>
+            <UiIconStyle>
+              <img
+                src="/assets/images/header_images/cart.svg"
+                alt="어바웃 이미지"
+              />
+            </UiIconStyle>
             <h2>장바구니 목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
           </TitleStyle>
           <ContainerStyle>
-            <BtnAll />
+            {/* 페이지 버튼 삭제 */}
+            {/* <BtnAll />
             <BtnList />
-            <BtnComplete />
+            <BtnComplete /> */}
           </ContainerStyle>
           <div>
             {planData.map(item => (

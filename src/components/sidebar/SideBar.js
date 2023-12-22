@@ -1,20 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import {
-  AboutStyle,
-  BasketStyle,
-  EventStyle,
   LoginStyle,
-  ShoppingStyle,
+  MenuStyle,
+  SelectMenu,
   SideBarStyle,
   SideBarWrapStyle,
 } from "../../styles/ComponentsStyles";
-import { SmallBtnStyles } from "../../styles/LayoutStyles";
-import styled from "@emotion/styled";
 
+// 사이드바 메뉴
 const SideBar = () => {
-  // const [isHovered, setIsHovered] = useState(false) ;
-
   return (
     <>
       <SideBarStyle>
@@ -27,99 +21,101 @@ const SideBar = () => {
               <span>이메일로 회원가입 하기</span>
             </div>
           </LoginStyle>
-          <AboutStyle>
-            <p>소개</p>
-            <Link to="/about">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+          {/* 서비스 소개 */}
+          <MenuStyle>
+            <p>Abbout</p>
+            <ul>
+              <li>
+                <SelectMenu to="/about">
                   <img
                     src="../assets/images/header_images/about.svg"
                     alt="about"
                   />
-                  <span>About</span>
-                </li>
-              </ul>
-            </Link>
-          </AboutStyle>
-          <BasketStyle>
+                  <span>서비스 소개</span>
+                </SelectMenu>
+              </li>
+            </ul>
+          </MenuStyle>
+          {/* 장바구니 */}
+          <MenuStyle>
             <p>장바구니</p>
-            <Link to="/cart/cartplan">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+            {/* 모두보기 */}
+            <ul>
+              <li>
+                <SelectMenu to="/cart/cartall">
+                  <img
+                    src="../assets/images/header_images/all.svg"
+                    alt="about"
+                  />
+                  <span>모두보기</span>
+                </SelectMenu>
+              </li>
+            </ul>
+            {/* 장볼거 */}
+            <ul>
+              <li>
+                <SelectMenu to="/cart/cartplan">
                   <img
                     src="../assets/images/header_images/list.svg"
                     alt="about"
                   />
                   <span>장볼것</span>
-                </li>
-              </ul>
-            </Link>
-            <Link to="/cart/cartCompleted">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+                </SelectMenu>
+              </li>
+            </ul>
+            {/* 장본것 */}
+            <ul>
+              <li>
+                <SelectMenu to="/cart/cartCompleted">
                   <img
                     src="../assets/images/header_images/cart.svg"
                     alt="cart"
                   />
                   <span>장본것</span>
-                </li>
-              </ul>
-            </Link>
-            <Link to="/cart/cartall">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
-                  <img src="../assets/images/header_images/all.svg" alt="all" />
-                  <span>모두보기</span>
-                </li>
-              </ul>
-            </Link>
-          </BasketStyle>
-          <ShoppingStyle>
+                </SelectMenu>
+              </li>
+            </ul>
+          </MenuStyle>
+          {/* 쇼핑하기 */}
+          <MenuStyle>
             <p>쇼핑하기</p>
-            <Link to="/mart">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+            <ul>
+              <li>
+                <SelectMenu to="/mart">
                   <img src="../assets/images/header_images/store.svg" alt="" />
                   <span>근처 매장찾기</span>
-                </li>
-              </ul>
-            </Link>
-          </ShoppingStyle>
-          <EventStyle>
+                </SelectMenu>
+              </li>
+            </ul>
+          </MenuStyle>
+          {/* 이벤트 */}
+          <MenuStyle>
             <p>이벤트</p>
-            <Link to="/event">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+            <ul>
+              <li>
+                <SelectMenu to="/event">
                   <img src="../assets/images/header_images/heart.svg" alt="" />
                   <span>쇼핑하기 좋은 날</span>
-                </li>
-              </ul>
-            </Link>
-            <Link to="/event">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+                </SelectMenu>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <SelectMenu to="*">
                   <img src="../assets/images/header_images/notice.svg" alt="" />
                   <span>게시판</span>
-                </li>
-              </ul>
-            </Link>
-            <Link to="/event">
-              <ul>
-                <li>
-                  <div className="hoverbox"></div>
+                </SelectMenu>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <SelectMenu to="*">
                   <img src="../assets/images/header_images/app.svg" alt="" />
                   <span>비즈니스 앱</span>
-                </li>
-              </ul>
-            </Link>
-          </EventStyle>
+                </SelectMenu>
+              </li>
+            </ul>
+          </MenuStyle>
         </SideBarWrapStyle>
       </SideBarStyle>
     </>

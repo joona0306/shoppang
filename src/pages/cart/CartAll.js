@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getProduct } from "../../api/product/product_api";
+import { getProduct, postProduct } from "../../api/product/product_api";
 import BtnAll from "../../components/card/BtnAll";
 import BtnComplete from "../../components/card/BtnComplete";
 import BtnList from "../../components/card/BtnList";
@@ -10,9 +10,11 @@ import {
   ContainerStyle,
   PageLayoutStyle,
   TitleStyle,
+  UiIconStyle,
 } from "../../styles/LayoutStyles";
 import CardForm from "../../components/card/CardForm";
 import CardComplete from "../../components/card/CardComplete";
+import CartAddEdit from "../../components/modal/CartAddEdit";
 const initPlanData = [];
 const CartAll = () => {
   const [data, setData] = useState([]);
@@ -25,9 +27,9 @@ const CartAll = () => {
   const handleClickGet = () => {
     getProduct(1, setData);
   };
-  console.log(handleClickGet);
+  // console.log(handleClickGet);
   const getAllProduct = () => {
-    console.log("전체목록 불러왔다.");
+    // console.log("전체목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
   };
 
@@ -43,6 +45,19 @@ const CartAll = () => {
   useEffect(() => {
     getAllProduct();
   }, []);
+
+  const handleClickPlanGet = (productNm, categoryPk, memo) => {
+    postProduct(
+      {
+        userPk: userPk,
+        categoryPk: categoryPk,
+        productNm: productNm,
+        memo: memo,
+      },
+      getAllProduct,
+    );
+  };
+
   return (
     <>
       <Header />
@@ -60,11 +75,19 @@ const CartAll = () => {
         </div>
         <PageLayoutStyle>
           <TitleStyle>
+            <UiIconStyle>
+              <img
+                src="/assets/images/header_images/all.svg"
+                alt="어바웃 이미지"
+              />
+            </UiIconStyle>
             <h2>장바구니 모든목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
+            <CartAddEdit btnAct="등록하기" handleClick={handleClickPlanGet} />
           </TitleStyle>
           <ContainerStyle>
-            <BtnAll>
+            {/* 페이지 버튼 삭제 */}
+            {/* <BtnAll>
               <div
                 onClick={() => {
                   handleClickGet();
@@ -72,7 +95,7 @@ const CartAll = () => {
               ></div>
             </BtnAll>
             <BtnList />
-            <BtnComplete />
+            <BtnComplete /> */}
           </ContainerStyle>
           <div>{showList()}</div>
         </PageLayoutStyle>

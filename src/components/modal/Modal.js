@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   CartModalStyle,
   ModalBackStyle,
+  ModalBtnsStyle,
   ModalBtnsWrapStyle,
 } from "../../styles/ComponentsStyles";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
@@ -58,12 +59,14 @@ const Modal = ({ isOpen, closeModal, children, btnAct, handleClick }) => {
           }}
         />
         {/* 추가 기능 및 글자출력 */}
-        <SmallBtnStyles
-          onClick={() => handleClick(productNm, categoryPk, memo)}
-        >
-          등록하기
-        </SmallBtnStyles>
-        <SmallBtnStyles onClick={closeModal}>취소하기</SmallBtnStyles>
+        <ModalBtnsStyle>
+          <SmallBtnStyles
+            onClick={() => handleClick(productNm, categoryPk, memo)}
+          >
+            등록하기
+          </SmallBtnStyles>
+          <SmallBtnStyles onClick={closeModal}>취소하기</SmallBtnStyles>
+        </ModalBtnsStyle>
       </CartModalStyle>
     </ModalBackStyle>
   );

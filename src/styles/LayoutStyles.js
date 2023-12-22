@@ -36,28 +36,52 @@ export const Wrap = styled.div`
 export const PageLayoutStyle = styled.div`
   position: relative;
   width: 100%;
-  /* margin: 0 auto; */
-  margin-left: 10%;
-  /* margin-right: 5%; */
-  margin-top: 30px;
+  padding: 28px 66px;
+  margin-left: 40px;
 `;
 
 export const TitleStyle = styled.div`
+  position: relative;
+  display: flex;
+  height: 50px;
+
   h2 {
-    font-size: 24px;
+    display: grid;
+    align-items: center;
+    font-size: 38px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%;
-    margin-bottom: 7px;
+    color: #424242;
+    /* line-height: 120%; */
+    /* margin-bottom: 7px; */
   }
   span {
-    display: block;
+    display: grid;
+    align-items: end;
+    position: relative;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%;
+    /* line-height: 120%; */
     color: ${Common.color.g600};
-    margin-bottom: 23px;
+    margin-bottom: 3px;
+    margin-left: 16px;
+  }
+`;
+
+export const UiIconStyle = styled.div`
+  position: relative;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  /* justify-content: center; */
+  img {
+    position: relative;
+    display: flex;
+    width: 39px;
+    height: 35px;
+    margin-right: 9px;
+    opacity: 80%;
   }
 `;
 
@@ -88,6 +112,7 @@ export const LargeBtnStyles = styled.button`
 `;
 
 export const SmallBtnStyles = styled.button`
+  position: relative;
   width: 80px;
   height: 37px;
   border-radius: 18px;
@@ -108,6 +133,37 @@ export const SmallBtnStyles = styled.button`
   &:active {
     color: #fff;
     background-color: ${Common.color.primary};
+  }
+`;
+
+// 등록버튼 css
+export const AddBtnStyles = styled.div`
+  position: absolute;
+  display: flex;
+  right: 0;
+  bottom: 0;
+  width: 90px;
+  height: 38px;
+  border-radius: 20px;
+  /* border: 1px solid ${Common.color.g600}; */
+  background-color: #3fb139;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: ${Common.color.p600};
+    background-color: ${Common.color.p400};
+  }
+
+  &:active {
+    background-color: #fff;
+    color: ${Common.color.g900};
+    border: 1px solid ${Common.color.g600};
   }
 `;
 
@@ -221,7 +277,7 @@ export const Store = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  /* margin-top: 80px; */
+  margin-top: 80px;
   gap: 50px;
 `;
 export const CardString = styled.div`
