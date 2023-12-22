@@ -51,7 +51,7 @@ const CardForm = ({ item }) => {
           <Memo>{item.memo}</Memo>
           <CardFormBtn
             onClick={preventButtonClick}
-            style={{ pointerEvents: "auto" }}
+            style={{ marginBottom: 110 }}
           >
             <BtnEdit item={item} onClick={handleEdit} />
             <BtnDel onClick={handleDelete} />
