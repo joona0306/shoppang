@@ -25,7 +25,7 @@ const CardComplete = ({ item }) => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
     const day = currentDate.getDate();
-    // 현재 날짜 표시
+    // 현재 날짜 표시.
     return `${year}.${month}.${day}`;
   };
 
