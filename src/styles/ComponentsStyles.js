@@ -14,10 +14,8 @@ export const CardBox = styled.div`
 export const CardEnd = styled.div`
   position: relative;
   height: 115px;
-
   background: #a8a8a8;
   opacity: 0.4;
-
   border-radius: 8px 8px 0px 0px;
 `;
 export const DateText = styled.div`
@@ -25,7 +23,6 @@ export const DateText = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   font-size: 42px;
   font-weight: 700;
   line-height: 50px;
@@ -67,7 +64,6 @@ export const Memo = styled.p`
 export const CardFormBtn = styled.div`
   display: flex;
   gap: 12px;
-
   padding: 12px 0px 0px 16px;
 `;
 export const CardCompleteBtn = styled.div`
@@ -246,6 +242,7 @@ export const AboutStyle = styled.div`
         opacity: 100%;
       }
     }
+
     img {
       width: 20px;
       height: 20px;
@@ -398,9 +395,9 @@ export const SideBarStyle = styled.section`
 `;
 export const SideBarWrapStyle = styled.div`
   position: fixed;
-  width: 220px;
+  width: 15%;
   height: 100%;
-  margin-left: 25px;
+  margin-left: 60px;
   font-size: 14px;
   border-right: 1px solid ${Common.color.g600};
 

@@ -63,7 +63,6 @@ const CartAll = () => {
             <h2>장바구니 모든목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
           </TitleStyle>
-          <div></div>
           <ContainerStyle>
             <BtnAll>
               <div
