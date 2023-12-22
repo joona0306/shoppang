@@ -2,8 +2,16 @@ import React from "react";
 import Header from "../../components/header/Header";
 import Main from "../../components/main/Main";
 import SideBar from "../../components/sidebar/SideBar";
-import { CardBut, CardText, CardTop, ContentCard, GoodDay, PageLayoutStyle, TitleStyle } from "../../styles/LayoutStyles";
-
+import {
+  CardBut,
+  CardText,
+  CardTop,
+  ContentCard,
+  GoodDay,
+  PageLayoutStyle,
+  TitleStyle,
+  UiIconStyle,
+} from "../../styles/LayoutStyles";
 
 const Event = () => {
   return (
@@ -13,6 +21,12 @@ const Event = () => {
         <SideBar />
         <PageLayoutStyle>
           <TitleStyle>
+            <UiIconStyle>
+              <img
+                src="/assets/images/header_images/heart.svg"
+                alt="어바웃 이미지"
+              />
+            </UiIconStyle>
             <h2>쇼핑하기 좋은날</h2>
             <span>핫딜 상품을 추천 받아보세요</span>
           </TitleStyle>

@@ -12,6 +12,7 @@ import {
   ContainerStyle,
   PageLayoutStyle,
   TitleStyle,
+  UiIconStyle,
 } from "../../styles/LayoutStyles";
 
 const initPlanData = [];
@@ -24,7 +25,7 @@ const CartPlan = () => {
   const [choiceList, setChoiceList] = useState(1);
 
   const getAllProduct = () => {
-    console.log("구매예정 목록 불러왔다.");
+    // console.log("구매예정 목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
   };
 
@@ -51,11 +52,19 @@ const CartPlan = () => {
         <SideBar />
         <PageLayoutStyle>
           <TitleStyle>
+            <UiIconStyle>
+              <img
+                src="/assets/images/header_images/list.svg"
+                alt="어바웃 이미지"
+              />
+            </UiIconStyle>
             <h2>장바구니 살목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
+            <CartAddEdit btnAct="등록하기" handleClick={handleClickPlanGet} />
           </TitleStyle>
           <ContainerStyle>
-            <BtnAll>
+            {/* 페이지 버튼 삭제 */}
+            {/* <BtnAll>
               <div onClick={handleClickPlanGet}></div>
             </BtnAll>
             <BtnList>
@@ -63,8 +72,7 @@ const CartPlan = () => {
             </BtnList>
             <BtnComplete>
               <div onClick={handleClickPlanGet}></div>
-            </BtnComplete>
-            <CartAddEdit btnAct="등록하기" handleClick={handleClickPlanGet} />
+            </BtnComplete> */}
           </ContainerStyle>
           <div>
             {planData.map(item => (

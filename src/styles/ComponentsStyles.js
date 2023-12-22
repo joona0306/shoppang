@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Common } from "./LayoutStyles";
-
+import { NavLink } from "react-router-dom";
 
 // Card Component Style
 export const CardBox = styled.div`
@@ -106,8 +106,8 @@ export const HeaderTopBarStyle = styled.div`
   .top-left {
     display: flex;
     align-items: center;
-    gap: 5px;    
-    
+    gap: 5px;
+
     img {
       width: 68px;
       cursor: pointer;
@@ -121,7 +121,7 @@ export const HeaderTopBarStyle = styled.div`
     }
   }
   .top-right {
-    display: flex;    
+    display: flex;
     align-items: center;
     gap: 6px;
     img {
@@ -187,14 +187,20 @@ export const CartModalStyle = styled.div`
     font-size: 16px;
   }
 
-  
   button {
     position: relative;
-    margin-left: 237px;
+    /* margin-left: 237px; */
     width: 90px;
     height: 34px;
+    margin-left: 10px;
   }
 `;
+export const ModalBtnsStyle = styled.div`
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+`;
+
 export const ModalBackStyle = styled.div`
   position: fixed;
   top: 0;
@@ -209,131 +215,7 @@ export const ModalBackStyle = styled.div`
 `;
 
 // SideBar Component Style
-export const AboutStyle = styled.div`
-  position: relative;
-  width: 220px;
-  height: auto;
-  padding: 16px;
 
-  p {
-    position: relative;
-    color: #666;
-  }
-  li {
-    position: relative;
-    width: 195px;
-    height: auto;
-    border-radius: 8px;
-    cursor: pointer;
-
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-
-      span {
-        position: relative;
-        /* display: block; */
-        /* align-items: center; */
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
-    }
-    img {
-      width: 20px;
-      height: 20px;
-      opacity: 35%;
-    }
-
-  }
-`;
-export const BasketStyle = styled.div`
-  position: relative;
-  width: 220px;
-  height: auto;
-  padding: 16px;
-  p {
-    position: relative;
-    color: #666;
-  }
-  li {
-    position: relative;
-    cursor: pointer;
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
-    }
-
-    img {
-      width: 20px;
-      height: 20px;
-      opacity: 35%;
-    }
-  }
-`;
-export const EventStyle = styled.div`
-  position: relative;
-  width: 220px;
-  height: auto;
-  padding: 16px;
-  p {
-    position: relative;
-    color: #666;
-  }
-  li {
-    position: relative;
-    cursor: pointer;
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
-    }
-    img {
-      width: 20px;
-      height: 20px;
-      opacity: 35%;
-    }
-  }
-`;
 export const LoginStyle = styled.div`
   position: relative;
   width: 220px;
@@ -356,44 +238,199 @@ export const LoginStyle = styled.div`
     cursor: pointer;
   }
 `;
-export const ShoppingStyle = styled.div`
+export const MenuStyle = styled.div`
   position: relative;
   width: 220px;
   height: auto;
   padding: 16px;
+
   p {
     position: relative;
     color: #666;
   }
   li {
     position: relative;
+    width: 195px;
+    height: auto;
+    border-radius: 8px;
     cursor: pointer;
-    &:hover {
-      .hoverbox {
-        position: absolute;
-        width: 195px;
-        height: 32px;
-        border-radius: 8px;
-        left: -16px;
-        background-color: #a8a8a8;
-        opacity: 35%;
-      }
-      span {
-        position: relative;
-        z-index: 1;
-      }
-      img {
-        z-index: 1;
-        opacity: 100%;
-      }
+
+    /* opacity: 35%; */
+
+    span {
+      position: relative;
+      z-index: 1;
+      margin-left: 16px;
     }
     img {
+      position: relative;
+      left: 16px;
       width: 20px;
       height: 20px;
       opacity: 35%;
     }
   }
 `;
+export const SelectMenu = styled(NavLink)`
+  position: absolute;
+  display: flex;
+  width: 195px;
+  height: 32px;
+  border-radius: 8px;
+  left: -16px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+
+  &:hover {
+    background-color: #dddd;
+    img {
+      z-index: 1;
+      opacity: 100%;
+    }
+  }
+  &.active {
+    background-color: #dddd;
+    img {
+      z-index: 1;
+      opacity: 100%;
+    }
+  }
+`;
+// export const BasketStyle = styled.div`
+//   position: relative;
+//   width: 220px;
+//   height: auto;
+//   padding: 16px;
+
+//   p {
+//     position: relative;
+//     color: #666;
+//   }
+//   li {
+//     position: relative;
+//     width: 195px;
+//     height: auto;
+//     border-radius: 8px;
+//     cursor: pointer;
+//     .hoverbox {
+//       position: absolute;
+//       display: flex;
+//       width: 195px;
+//       height: 32px;
+//       border-radius: 8px;
+//       left: -16px;
+//       display: flex;
+//       align-items: center;
+//       background-color: #fff;
+//       /* opacity: 35%; */
+//       &:hover {
+//         position: absolute;
+//         width: 195px;
+//         height: 32px;
+//         border-radius: 8px;
+//         left: -16px;
+//         background-color: #dddd;
+//         span {
+//           position: relative;
+//           z-index: 1;
+//         }
+//         img {
+//           z-index: 1;
+//           opacity: 100%;
+//         }
+//       }
+//       span {
+//         position: relative;
+//         z-index: 1;
+//         margin-left: 16px;
+//       }
+//       img {
+//         position: relative;
+//         left: 16px;
+//         width: 20px;
+//         height: 20px;
+//         opacity: 35%;
+//       }
+//     }
+//   }
+// `;
+// export const EventStyle = styled.div`
+//   position: relative;
+//   width: 220px;
+//   height: auto;
+//   padding: 16px;
+//   p {
+//     position: relative;
+//     color: #666;
+//   }
+//   li {
+//     position: relative;
+//     cursor: pointer;
+//     &:hover {
+//       .hoverbox {
+//         position: absolute;
+//         width: 195px;
+//         height: 32px;
+//         border-radius: 8px;
+//         left: -16px;
+//         background-color: #a8a8a8;
+//         opacity: 35%;
+//       }
+//       span {
+//         position: relative;
+//         z-index: 1;
+//       }
+//       img {
+//         z-index: 1;
+//         opacity: 100%;
+//       }
+//     }
+//     img {
+//       width: 20px;
+//       height: 20px;
+//       opacity: 35%;
+//     }
+//   }
+// `;
+// export const ShoppingStyle = styled.div`
+//   position: relative;
+//   width: 220px;
+//   height: auto;
+//   padding: 16px;
+//   p {
+//     position: relative;
+//     color: #666;
+//   }
+//   li {
+//     position: relative;
+//     cursor: pointer;
+//     &:hover {
+//       .hoverbox {
+//         position: absolute;
+//         width: 195px;
+//         height: 32px;
+//         border-radius: 8px;
+//         left: -16px;
+//         background-color: #a8a8a8;
+//         opacity: 35%;
+//       }
+//       span {
+//         position: relative;
+//         z-index: 1;
+//       }
+//       img {
+//         z-index: 1;
+//         opacity: 100%;
+//       }
+//     }
+//     img {
+//       width: 20px;
+//       height: 20px;
+//       opacity: 35%;
+//     }
+//   }
+// `;
 export const SideBarStyle = styled.section`
   position: relative;
   width: 245px;
