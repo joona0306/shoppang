@@ -11,15 +11,13 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
     // console.log(res.data);
     setPlanData(res.data);
   } catch (error) {
-    console.log(error);
-    alert("서버가 불안정합니다. 잠시후 시도해 주세요.");
     setPlanData([
       {
         productPk: 1,
         userPk: 1,
         productNm: "상ddd품명",
         categoryNm: "기타",
-        memo: "메모",
+        memo: "메모메모메모메모메모메모메모메모메모모메모",
         createdAt: "2023-12-19 15:56:43",
         buyingCheck: 0,
         buyingDate: null,
@@ -67,13 +65,15 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
       {
         productPk: 6,
         userPk: 1,
-        productNm: "박준서",
+        productNm: "청소기",
         categoryNm: "기타",
         memo: "작업중",
         createdAt: "2023-12-19 17:09:46",
         buyingCheck: 0,
         buyingDate: null,
       },
+      // console.log(error);
+      // alert("서버가 불안정합니다. 잠시후 시도해 주세요.");
     ]);
   }
 };
@@ -97,8 +97,8 @@ export const postProduct = async (obj, getAllProduct) => {
 export const putProduct = async payload => {
   try {
     const res = await axios.put(`${path}`, payload);
-    console.log(`api:${payload}`);
-    console.log(res.data);
+    // console.log(`api:${payload}`);
+    // console.log(res.data);
     payload(res.data);
   } catch (error) {
     console.log(error);
@@ -112,11 +112,10 @@ export const patchProduct = async () => {
     console.log(error);
   }
 };
-export const deleteProduct = async (userPk, productPk) => {
+
+export const deleteProduct = async () => {
   try {
-    const res = await axios.delete(
-      `${path}?userPk=${userPk}&productPk=${productPk}`,
-    );
+    const res = await axios.delete(`${path}`);
     console.log(res.data);
   } catch (error) {
     console.log(error);

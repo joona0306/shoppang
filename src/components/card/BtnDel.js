@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+// BtnDel.js 또는 해당 파일
+
+import React from "react";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 import { deleteProduct } from "../../api/product/product_api";
 
-const BtnDel = ({ userPk, productPk, onDeleteSuccess }) => {
-  const handleDeleteProduct = async () => {
+const BtnDel = ({ productPk, onDeleteSuccess }) => {
+  const userPk = "1"; // 예를 들어 '1234'와 같은 고정된 값
+
+  const handleDel = async () => {
+    const delpayload = { userPk, productPk };
+
     try {
-      console.log("삭제");
-      await deleteProduct(userPk, productPk);
-      console.log("삭제 성공");
-      onDeleteSuccess(); // 삭제 성공 후 콜백 호출
+      const response = await deleteProduct(delpayload);
+      console.log(response.data);
+      if (onDeleteSuccess) {
+        onDeleteSuccess(); // 삭제 성공 시 onDeleteSuccess 콜백 호출
+      }
     } catch (error) {
-      console.error("제품 삭제 오류:", error);
+      console.error("Error deleting product:", error);
+      // 사용자에게 오류 메시지를 표시하는 로직을 추가할 수 있습니다.
     }
   };
 
-  return (
-    <SmallBtnStyles type="button" onClick={handleDeleteProduct}>
-      삭제
-    </SmallBtnStyles>
-  );
+  return <SmallBtnStyles onClick={handleDel}>삭제</SmallBtnStyles>;
 };
 
 export default BtnDel;

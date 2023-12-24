@@ -23,7 +23,7 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
     if (targetName === "product") {
       setPrductNm(value);
     } else if (targetName === "cate") {
-      setCategoryPk(value);
+      setCategoryPk(parseInt(value, 10));
     } else if (targetName === "memo") {
       setMemo(value);
     }
@@ -58,7 +58,7 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
           <option value={3}>식료품</option>
         </select>
         <input
-          placeholder="를 입력해주세요"
+          placeholder="메모를 입력해주세요"
           name="memo"
           value={memo}
           onChange={e => {

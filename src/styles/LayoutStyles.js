@@ -36,8 +36,10 @@ export const Wrap = styled.div`
 export const PageLayoutStyle = styled.div`
   position: relative;
   width: 100%;
+
   padding: 28px 66px;
-  margin-left: 40px;
+  margin-left: 244px;
+  flex-grow: 1;
 `;
 
 export const TitleStyle = styled.div`
@@ -90,9 +92,10 @@ export const LargeBtnStyles = styled.button`
   width: 120px;
   height: 49px;
   border-radius: 24px;
-  border: 1px solid ${Common.color.g600};
+  border: 1px solid ${Common.color.p600};
   margin-right: 15px;
-  background-color: #fff;
+  border-radius: 18px;
+
   color: ${Common.color.g900};
   cursor: pointer;
 
@@ -116,9 +119,9 @@ export const SmallBtnStyles = styled.button`
   width: 80px;
   height: 37px;
   border-radius: 18px;
-  border: 1px solid ${Common.color.g600};
+  border: 1px solid ${Common.color.p600};
   background-color: #fff;
-  color: ${Common.color.g900};
+  color: ${Common.color.p600};
   cursor: pointer;
 
   font-size: 14px;
