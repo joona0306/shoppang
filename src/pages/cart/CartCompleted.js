@@ -13,11 +13,11 @@ import { getProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
 import { CardContainer } from "../../styles/ComponentsStyles";
 const initPlanData = [];
-const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
+const CartCompleted = () => {
   const [data, setData] = useState([]);
   const [planData, setPlanData] = useState(initPlanData);
   // 사용자 pk
-  // const [userPk, setUserPk] = useState(1);
+  const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
   const [choiceList, setChoiceList] = useState(2);
 
@@ -32,16 +32,12 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
 
   useEffect(() => {
     getAllProduct();
-  }, [userPk]);
+  }, []);
   return (
     <>
-      <Header
-        setLoginCheck={setLoginCheck}
-        setUserPk={setUserPk}
-        loginCheck={loginCheck}
-      />
+      <Header />
       <Main>
-        <SideBar userPk={userPk} />
+        <SideBar />
         <PageLayoutStyle>
           <TitleStyle>
             <UiIconStyle>

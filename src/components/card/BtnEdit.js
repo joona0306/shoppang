@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 import ModalEdit from "../modal/ModalEdit";
-import { getCategory } from "../../api/category/category_api";
+
 const BtnEdit = ({ item, onClick, categoryPk }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = event => {
-    event.stopPropagation();
+  // const [categoryPke, setCategoryPk] = useState(item.categoryPk);
+  const openModal = () => {
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    window.location.reload();
   };
 
-  const getcateProduct = () => {
-    getCategory(categoryPk);
-  };
   return (
     <>
       <SmallBtnStyles type="button" onClick={openModal}>
@@ -27,7 +22,7 @@ const BtnEdit = ({ item, onClick, categoryPk }) => {
         isOpen={isModalOpen}
         closeModal={closeModal}
         item={item}
-        categoryPk={getCategory}
+        categoryPk={categoryPk}
         handleClick={onClick}
       />
     </>

@@ -8,7 +8,7 @@ import {
 } from "../../styles/ComponentsStyles";
 
 // 사이드바 메뉴
-const SideBar = ({ userPk }) => {
+const SideBar = () => {
   return (
     <>
       <SideBarStyle>
@@ -17,12 +17,8 @@ const SideBar = ({ userPk }) => {
             <img src="../assets/images/header_images/Avatar.svg" alt="login" />
             <br />
             <div>
-              {userPk === 1 ? <p>team3</p> : <p>로그인</p>}
-              {userPk === 1 ? (
-                <span>team3@gmail.com</span>
-              ) : (
-                <span>이메일로 회원가입 하기</span>
-              )}
+              <p>로그인</p>
+              <span>이메일로 회원가입 하기</span>
             </div>
           </LoginStyle>
           {/* 서비스 소개 */}

@@ -3,11 +3,9 @@ import { SERVER_URL } from "../config";
 
 const path = `${SERVER_URL}/api/category`;
 
-export const getCategory = async (categoryPk, categoryNm) => {
+export const getCategory = async () => {
   try {
-    const res = await axios.get(
-      `${path}?userPk=${categoryPk}&choiceList=${categoryNm}`,
-    );
+    const res = await axios.get(`${path}`);
     console.log(res.data);
   } catch (error) {
     console.log(error);

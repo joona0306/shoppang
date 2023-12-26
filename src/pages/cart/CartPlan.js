@@ -15,11 +15,11 @@ import {
 import { CardContainer } from "../../styles/ComponentsStyles";
 
 const initPlanData = [];
-const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
+const CartPlan = () => {
   const [isModal, setIsModal] = useState(true);
   const [planData, setPlanData] = useState(initPlanData);
   // 사용자 pk
-  // const [userPk, setUserPk] = useState(1);
+  const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
   const [choiceList, setChoiceList] = useState(1);
 
@@ -30,7 +30,7 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
 
   useEffect(() => {
     getAllProduct();
-  }, [userPk]);
+  }, []);
 
   const handleClickPlanGet = (productNm, categoryPk, memo) => {
     postProduct(
@@ -46,13 +46,9 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
 
   return (
     <>
-      <Header
-        setLoginCheck={setLoginCheck}
-        setUserPk={setUserPk}
-        loginCheck={loginCheck}
-      />
+      <Header />
       <Main>
-        <SideBar userPk={userPk} />
+        <SideBar />
         <PageLayoutStyle>
           <TitleStyle>
             <UiIconStyle>

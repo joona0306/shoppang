@@ -1,14 +1,13 @@
 import axios from "axios";
 import { SERVER_URL } from "../config";
 
-const path = `${SERVER_URL}/api/user/signin`;
+const path = `${SERVER_URL}/api/product`;
 
-export const postSignin = async (obj, postResult) => {
+export const postSignin = async () => {
   try {
-    const res = await axios.post(`${path}`, obj);
-    console.log(res.data.result);
-    postResult(res.data.result);
+    const res = await axios.post(`${path}`);
+    console.log(res.data);
   } catch (error) {
-    postResult(1);
+    console.log(error);
   }
 };
