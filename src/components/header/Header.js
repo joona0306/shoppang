@@ -15,7 +15,7 @@ const Header = ({ setUserPk, loginCheck, setLoginCheck }) => {
   return (
     <HeaderTopFixStyle>
       <HeaderTopBarStyle>
-        <Link to="/cart/cartall">
+        <Link to="/about">
           <div className="top-left">
             <img src="/assets/images/header_images/logo.svg" alt="log" />
             <h1>SHOPPANG</h1>
