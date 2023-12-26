@@ -16,11 +16,11 @@ import CartAdd from "../../components/modal/CartAdd";
 import { CardContainer } from "../../styles/ComponentsStyles";
 
 const initPlanData = [];
-const CartAll = () => {
+const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   const [data, setData] = useState([]);
   const [planData, setPlanData] = useState(initPlanData);
   // 사용자 pk
-  const [userPk, setUserPk] = useState(1);
+  // const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
   const [choiceList, setChoiceList] = useState(0);
 
@@ -36,7 +36,7 @@ const CartAll = () => {
   const showList = () => {
     return planData.map(item =>
       item.buyingCheck === 0 ? (
-        <CardForm key={item.productPk} item={item} userPk={userPk} />
+        <CardForm key={item.productPk} item={item} />
       ) : (
         <CardComplete key={item.productPk} item={item} />
       ),
@@ -44,7 +44,7 @@ const CartAll = () => {
   };
   useEffect(() => {
     getAllProduct();
-  }, []);
+  }, [userPk]);
 
   const handleClickPlanGet = (productNm, categoryPk, memo) => {
     postProduct(
@@ -60,9 +60,13 @@ const CartAll = () => {
 
   return (
     <>
-      <Header />
+      <Header
+        setUserPk={setUserPk}
+        loginCheck={loginCheck}
+        setLoginCheck={setLoginCheck}
+      />
       <Main>
-        <SideBar />
+        <SideBar userPk={userPk} />
         <div>
           {data.map(item => (
             <div key={item.getproduct}>
