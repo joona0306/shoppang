@@ -18,7 +18,7 @@ import CardForm from "../../components/card/CardForm";
 import CardComplete from "../../components/card/CardComplete";
 import CartAdd from "../../components/modal/CartAdd";
 import { CardContainer } from "../../styles/ComponentsStyles";
-import SearchFom from "../../components/card/SearchFom";
+import SearchFom from "../../components/header/components/SearchFom";
 import { getCategory } from "../../api/category/category_api";
 
 const initPlanData = [];
@@ -119,8 +119,6 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
         setUserPk={setUserPk}
         loginCheck={loginCheck}
         setLoginCheck={setLoginCheck}
-      />
-      <SearchFom
         setFilters={setFilters}
         search={search}
         setSearch={setSearch}
