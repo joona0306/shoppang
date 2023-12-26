@@ -9,12 +9,16 @@ import {
   UiIconStyle,
 } from "../../styles/LayoutStyles";
 
-const About = () => {
+const About = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   return (
     <>
-      <Header />
+      <Header
+        setLoginCheck={setLoginCheck}
+        setUserPk={setUserPk}
+        loginCheck={loginCheck}
+      />
       <Main>
-        <SideBar />
+        <SideBar userPk={userPk} />
         <PageLayoutStyle>
           <AboutInfoStyle>
             <TitleStyle>

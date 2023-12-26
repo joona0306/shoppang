@@ -18,12 +18,16 @@ import {
   UiIconStyle,
 } from "../../styles/LayoutStyles.js";
 
-const Mart = () => {
+const Mart = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   return (
     <>
-      <Header />
+      <Header
+        setLoginCheck={setLoginCheck}
+        setUserPk={setUserPk}
+        loginCheck={loginCheck}
+      />
       <Main>
-        <SideBar />
+        <SideBar userPk={userPk} />
         <PageLayoutStyle>
           <TitleStyle>
             <UiIconStyle>
