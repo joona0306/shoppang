@@ -6,11 +6,20 @@ import {
 } from "../../styles/ComponentsStyles";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
+import { getCategory } from "../../api/category/category_api";
+
+
 const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
   const [productNm, setProductNm] = useState(item.productNm);
   const [categoryPk, setCategoryPk] = useState(item.categoryPk);
   const [memo, setMemo] = useState(item.memo);
   const [userPk, setUserPk] = useState(1);
+
+
+  const handleModalClick = e => {
+    e.stopPropagation(); // 모달 내부 클릭 시 바깥으로 이벤트가 전파되지 않도록 합니다.
+  };
+
 
   useEffect(() => {
     {
@@ -42,7 +51,9 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
   console.log(item);
   return (
     <ModalBackStyle style={{ display: isOpen ? "block" : "none" }}>
-      <CartModalStyle>
+
+      <CartModalStyle onClick={handleModalClick}>
+
         <header>장바구니 목록 수정</header>
         <input
           placeholder="상품 이름을 입력해주세요"

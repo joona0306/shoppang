@@ -7,12 +7,17 @@ function BtnDel({ userPk, productPk }) {
     event.stopPropagation();
     try {
       await deleteProduct(userPk, productPk);
+
+      window.location.reload();
+
     } catch (error) {
       console.error("Failed to delete the product", error);
     }
   };
 
+
   // onClick 핸들러를 수정하였습니다.
+
   return <SmallBtnStyles onClick={handleDeleteProduct}>삭제</SmallBtnStyles>;
 }
 

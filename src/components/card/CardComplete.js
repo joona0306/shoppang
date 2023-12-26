@@ -22,7 +22,9 @@ const CardComplete = ({ item }) => {
   };
   const [productPk, setProductPk] = useState(item.productPk);
   const [userPk] = useState(1);
+
   // 카드를 선택했을 때의 이벤트 핸들러입니다.
+
   const handleDelete = async (productPk, userPk) => {
     await deleteProduct(userPk, productPk);
   };

@@ -36,7 +36,7 @@ const CartAll = () => {
   const showList = () => {
     return planData.map(item =>
       item.buyingCheck === 0 ? (
-        <CardForm key={item.productPk} item={item} />
+        <CardForm key={item.productPk} item={item} userPk={userPk} />
       ) : (
         <CardComplete key={item.productPk} item={item} />
       ),
