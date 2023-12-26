@@ -1,6 +1,4 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 import {
   CardBox,
   CardContainer,
@@ -11,50 +9,40 @@ import {
 } from "../../styles/ComponentsStyles";
 import BtnDel from "./BtnDel";
 import BtnEdit from "./BtnEdit";
-import { putProduct, deleteProduct } from "../../api/product/product_api";
+import {
+  putProduct,
+  getProduct,
+  patchProduct,
+  deleteProduct,
+} from "../../api/product/product_api";
 
-const CardForm = ({ item }) => {
-  const navigate = useNavigate();
+const CardForm = ({ item, onCardDelete, userPk }) => {
+  const [productPk, setProductPk] = useState(item.productPk);
 
-  const handleCardFormClick = () => {
-    navigate(
-      `/cart/cartCompleted?productNm=${encodeURIComponent(
-        item.productNm,
-      )}&categoryNm=${encodeURIComponent(
-        item.categoryNm,
-      )}&memo=${encodeURIComponent(item.memo)}`,
-    );
+  const handleCardSelect = event => {
+    // setProductPk(selectedProductPk);
+    patchProduct(userPk, item.productPk);
   };
 
   const handleEdit = async (productPk, userPk, categoryPk, productNm, memo) => {
     const payload = { userPk, productNm, categoryPk, memo, productPk };
-    console.log(payload);
+    // console.log(payload);
     await putProduct(payload);
-
-    // console.log("Edit Clicked", productNm, categoryPk);
   };
-
-  // const handleDel = async (userPk, productPk) => {
-  //   const delpayload = { userPk, productPk };
-  //   console.log(delpayload);
-  //   await deleteProduct(delpayload);
-  // };
-
-  const preventButtonClick = event => {
-    event.stopPropagation();
+  const handleDelete = async (productPk, userPk) => {
+    await deleteProduct(userPk, productPk);
   };
-
+  console.log(userPk, productPk);
   return (
     <>
       <CardContainer>
-        <CardBox onClick={handleCardFormClick}>
+        <CardBox item={item}>
           <Heading>{item.productNm}</Heading>
           <Category>{item.categoryNm}</Category>
-
           <Memo>{item.memo}</Memo>
-          <CardFormBtn onClick={preventButtonClick} style={{}}>
+          <CardFormBtn>
             <BtnEdit item={item} onClick={handleEdit} />
-            <BtnDel />
+            <BtnDel userPk={userPk} productPk={productPk} />
           </CardFormBtn>
         </CardBox>
       </CardContainer>

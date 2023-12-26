@@ -65,7 +65,7 @@ const CartPlan = () => {
           <ContainerStyle> </ContainerStyle>
           <CardContainer>
             {planData.map(item => (
-              <CardForm key={item.productPk} item={item} />
+              <CardForm key={item.productPk} item={item} userPk={userPk} />
             ))}
           </CardContainer>
         </PageLayoutStyle>

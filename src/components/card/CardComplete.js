@@ -1,5 +1,4 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import {
   CardBox,
   CardCompleteBtn,
@@ -11,37 +10,33 @@ import {
   Memo,
 } from "../../styles/ComponentsStyles";
 import BtnDel from "./BtnDel";
+import { deleteProduct } from "../../api/product/product_api";
 
 const CardComplete = ({ item }) => {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-
-  const productNm = queryParams.get("productNm");
-  const categoryNm = queryParams.get("categoryNm");
-  const memo = queryParams.get("memo");
-
   const getCurrentDate = () => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
     const day = currentDate.getDate();
-    // 현재 날짜 표시.
     return `${year}.${month}.${day}`;
   };
-
+  const [productPk, setProductPk] = useState(item.productPk);
+  const [userPk] = useState(1);
+  // 카드를 선택했을 때의 이벤트 핸들러입니다.
+  const handleDelete = async (productPk, userPk) => {
+    await deleteProduct(userPk, productPk);
+  };
   return (
     <CardContainer>
       <CardBox>
-        {/* CardEnd: 카드폼 위에 완료된 배경색 표시 */}
         <CardEnd>
-          {/* DateText: 카드폼 위에 현재 날짜 표시 */}
           <DateText>{getCurrentDate()}</DateText>
           <Heading>{item.productNm}</Heading>
           <Category>{item.categoryNm}</Category>
           <Memo>{item.memo}</Memo>
         </CardEnd>
         <CardCompleteBtn>
-          <BtnDel />
+          <BtnDel userPk={userPk} productPk={productPk} />
         </CardCompleteBtn>
       </CardBox>
     </CardContainer>

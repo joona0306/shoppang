@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   CartModalStyle,
   ModalBackStyle,
@@ -7,54 +7,61 @@ import {
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
 const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
-  if (!isOpen) {
-    return null;
-  }
-  const [productNm, setPrductNm] = useState(item.productNm);
+  const [productNm, setProductNm] = useState(item.productNm);
   const [categoryPk, setCategoryPk] = useState(item.categoryPk);
   const [memo, setMemo] = useState(item.memo);
   const [userPk, setUserPk] = useState(1);
-  const handleChage = e => {
+
+  useEffect(() => {
+    {
+      setCategoryPk(item.categoryPk);
+      setProductNm(item.productNm);
+
+      setMemo(item.memo);
+      setUserPk(1);
+    }
+  }, [isOpen, item]);
+
+  const handleChange = e => {
     const targetName = e.target.name;
-    const integerCatePk = parseInt(categoryPk);
     const value = e.target.value;
-    setCategoryPk(integerCatePk);
-    // console.log(value);
+
     if (targetName === "product") {
-      setPrductNm(value);
+      setProductNm(value);
     } else if (targetName === "cate") {
-      setCategoryPk(parseInt(value, 10));
+      setCategoryPk(value); // 숫자로 변환
     } else if (targetName === "memo") {
       setMemo(value);
     }
   };
+
   const handleAdd = () => {
     handleClick(item?.productPk, userPk, categoryPk, productNm, memo);
     closeModal();
   };
-  console.log("modal", productNm, categoryPk, memo);
+  console.log(item);
   return (
     <ModalBackStyle style={{ display: isOpen ? "block" : "none" }}>
       <CartModalStyle>
         <header>장바구니 목록 수정</header>
         <input
-          placeholder="상품이름을 입력해주세요"
+          placeholder="상품 이름을 입력해주세요"
           value={productNm}
           name="product"
           onChange={e => {
-            handleChage(e);
+            handleChange(e);
           }}
         />
         <select
           value={categoryPk}
           name="cate"
           onChange={e => {
-            handleChage(e);
+            handleChange(e);
           }}
         >
           <option>카테고리를 선택해주세요</option>
           <option value={1}>기타</option>
-          <option value={2}>생활용품</option>
+          <option value={2}>생필품</option>
           <option value={3}>식료품</option>
         </select>
         <input
@@ -62,12 +69,10 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
           name="memo"
           value={memo}
           onChange={e => {
-            handleChage(e);
+            handleChange(e);
           }}
         />
-        {/* 추가 기능 및 글자출력 */}
         <SmallBtnStyles onClick={() => handleAdd()}>수정하기</SmallBtnStyles>
-
         <SmallBtnStyles onClick={closeModal}>취소하기</SmallBtnStyles>
       </CartModalStyle>
     </ModalBackStyle>

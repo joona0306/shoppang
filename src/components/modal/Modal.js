@@ -12,7 +12,7 @@ const Modal = ({ isOpen, closeModal, handleClick }) => {
     return null;
   }
   const [productNm, setPrductNm] = useState("");
-  const [categoryPk, setCategoryPk] = useState("");
+  const [categoryPk, setCategoryPk] = useState();
   const [memo, setMemo] = useState("");
   const handleChage = e => {
     const targetName = e.target.name;

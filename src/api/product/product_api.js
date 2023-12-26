@@ -104,19 +104,23 @@ export const putProduct = async payload => {
     console.log(error);
   }
 };
-export const patchProduct = async () => {
+export const patchProduct = async (userPk, productPk) => {
   try {
-    const res = await axios.patch(`${path}`);
-    console.log(res.data);
+    const res = await axios.patch(
+      `${path}?userPk=${userPk}&productPk=${productPk}`,
+    );
+    return res;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const deleteProduct = async () => {
+export const deleteProduct = async (userPk, productPk) => {
   try {
-    const res = await axios.delete(`${path}`);
-    console.log(res.data);
+    const res = await axios.delete(
+      `${path}?userPk=${userPk}&productPk=${productPk}`,
+    );
+    return res;
   } catch (error) {
     console.log(error);
   }
