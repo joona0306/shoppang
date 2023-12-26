@@ -12,6 +12,7 @@ import {
 import { getProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
 import { CardContainer } from "../../styles/ComponentsStyles";
+import SearchFom from "../../components/card/SearchFom";
 const initPlanData = [];
 const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   const [data, setData] = useState([]);
@@ -20,6 +21,12 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   // const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
   const [choiceList, setChoiceList] = useState(2);
+  //검색
+  const [filters, setFilters] = useState(true);
+  const [search, setSearch] = useState("");
+  const searchData = planData.filter(
+    item => item.productNm.replace(/\s/g, "") === search.replace(/\s/g, ""),
+  );
 
   const handleClickGet = () => {
     getProduct(1, setData);
@@ -40,6 +47,11 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         setUserPk={setUserPk}
         loginCheck={loginCheck}
       />
+      <SearchFom
+        setFilters={setFilters}
+        search={search}
+        setSearch={setSearch}
+      />
       <Main>
         <SideBar userPk={userPk} />
         <PageLayoutStyle>
@@ -55,9 +67,14 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
           </TitleStyle>
           <ContainerStyle></ContainerStyle>
           <CardContainer>
-            {planData.map(item => (
-              <CardComplete key={item.productPk} item={item} />
-            ))}
+            {filters &&
+              planData.map(item => (
+                <CardComplete key={item.productPk} item={item} />
+              ))}
+            {!filters &&
+              searchData.map(item => (
+                <CardComplete key={item.productPk} item={item} />
+              ))}
           </CardContainer>
         </PageLayoutStyle>
       </Main>

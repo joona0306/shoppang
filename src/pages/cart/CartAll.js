@@ -14,6 +14,7 @@ import CardForm from "../../components/card/CardForm";
 import CardComplete from "../../components/card/CardComplete";
 import CartAdd from "../../components/modal/CartAdd";
 import { CardContainer } from "../../styles/ComponentsStyles";
+import SearchFom from "../../components/card/SearchFom";
 
 const initPlanData = [];
 const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
@@ -23,6 +24,12 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   // const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
   const [choiceList, setChoiceList] = useState(0);
+  //검색
+  const [search, setSearch] = useState("");
+  const [filters, setFilters] = useState(true);
+  const searchData = planData.filter(
+    item => item.productNm.replace(/\s/g, "") === search.replace(/\s/g, ""),
+  );
 
   const handleClickGet = () => {
     getProduct(1, setData);
@@ -31,6 +38,16 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   const getAllProduct = () => {
     // console.log("전체목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
+  };
+
+  const showListFilter = () => {
+    return searchData.map(item =>
+      item.buyingCheck === 0 ? (
+        <CardForm key={item.productPk} item={item} />
+      ) : (
+        <CardComplete key={item.productPk} item={item} />
+      ),
+    );
   };
 
   const showList = () => {
@@ -65,6 +82,11 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
         loginCheck={loginCheck}
         setLoginCheck={setLoginCheck}
       />
+      <SearchFom
+        setFilters={setFilters}
+        search={search}
+        setSearch={setSearch}
+      />
       <Main>
         <SideBar userPk={userPk} />
         <div>
@@ -90,7 +112,8 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
             <CartAdd btnAct="등록하기" handleClick={handleClickPlanGet} />
           </TitleStyle>
           <ContainerStyle></ContainerStyle>
-          <CardContainer>{showList()}</CardContainer>
+          {filters && <CardContainer>{showList()}</CardContainer>}
+          {!filters && <CardContainer>{showListFilter()}</CardContainer>}
         </PageLayoutStyle>
       </Main>
     </>
