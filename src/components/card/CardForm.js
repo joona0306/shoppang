@@ -20,9 +20,9 @@ const CardForm = ({ item, onCardDelete, userPk }) => {
   const [productPk, setProductPk] = useState(item.productPk);
 
   const handleCardSelect = event => {
-
     // event.stopPropagation(); //
     window.location.reload();
+    alert("장보기를 완료 하셨습니다");
 
     patchProduct(userPk, item.productPk);
   };
@@ -41,9 +41,7 @@ const CardForm = ({ item, onCardDelete, userPk }) => {
   return (
     <>
       <CardContainer>
-
         <CardBox item={item} onClick={handleCardSelect}>
-
           <Heading>{item.productNm}</Heading>
           <Category>{item.categoryNm}</Category>
           <Memo>{item.memo}</Memo>

@@ -7,14 +7,12 @@ function BtnDel({ userPk, productPk }) {
     event.stopPropagation();
     try {
       await deleteProduct(userPk, productPk);
-
       window.location.reload();
-
+      alert("카드가 삭제되었습니다");
     } catch (error) {
       console.error("Failed to delete the product", error);
     }
   };
-
 
   // onClick 핸들러를 수정하였습니다.
 
