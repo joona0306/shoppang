@@ -8,7 +8,7 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
     const res = await axios.get(
       `${path}?userPk=${userPk}&choiceList=${choiceList}`,
     );
-    // console.log(res.data);
+
     setPlanData(res.data);
   } catch (error) {
     setPlanData([
