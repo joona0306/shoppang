@@ -7,12 +7,12 @@ import {
 } from "../../styles/ComponentsStyles";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
-const Modal = ({ isOpen, closeModal, children, btnAct, handleClick }) => {
+const Modal = ({ isOpen, closeModal, handleClick }) => {
   if (!isOpen) {
     return null;
   }
   const [productNm, setPrductNm] = useState("");
-  const [categoryPk, setCategoryPk] = useState("");
+  const [categoryPk, setCategoryPk] = useState();
   const [memo, setMemo] = useState("");
   const handleChage = e => {
     const targetName = e.target.name;

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getProduct, postProduct } from "../../api/product/product_api";
-import BtnAll from "../../components/card/BtnAll";
-import BtnComplete from "../../components/card/BtnComplete";
-import BtnList from "../../components/card/BtnList";
+
 import CardForm from "../../components/card/CardForm";
 import Header from "../../components/header/Header";
 import Main from "../../components/main/Main";
-import CartAddEdit from "../../components/modal/CartAddEdit";
+import CartAdd from "../../components/modal/CartAdd";
 import SideBar from "../../components/sidebar/SideBar";
 import {
   ContainerStyle,
@@ -14,6 +12,7 @@ import {
   TitleStyle,
   UiIconStyle,
 } from "../../styles/LayoutStyles";
+import { CardContainer } from "../../styles/ComponentsStyles";
 
 const initPlanData = [];
 const CartPlan = () => {
@@ -58,27 +57,17 @@ const CartPlan = () => {
                 alt="어바웃 이미지"
               />
             </UiIconStyle>
+
             <h2>장바구니 살목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
-            <CartAddEdit btnAct="등록하기" handleClick={handleClickPlanGet} />
+            <CartAdd btnAct="등록하기" handleClick={handleClickPlanGet} />
           </TitleStyle>
-          <ContainerStyle>
-            {/* 페이지 버튼 삭제 */}
-            {/* <BtnAll>
-              <div onClick={handleClickPlanGet}></div>
-            </BtnAll>
-            <BtnList>
-              <div onClick={handleClickPlanGet}></div>
-            </BtnList>
-            <BtnComplete>
-              <div onClick={handleClickPlanGet}></div>
-            </BtnComplete> */}
-          </ContainerStyle>
-          <div>
+          <ContainerStyle> </ContainerStyle>
+          <CardContainer>
             {planData.map(item => (
-              <CardForm key={item.productPk} item={item} />
+              <CardForm key={item.productPk} item={item} userPk={userPk} />
             ))}
-          </div>
+          </CardContainer>
         </PageLayoutStyle>
       </Main>
     </>

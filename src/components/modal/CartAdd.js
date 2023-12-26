@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AddBtnStyles } from "../../styles/LayoutStyles";
 import Modal from "./Modal";
 
-const CartAddEdit = props => {
+const CartAdd = props => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -21,4 +21,4 @@ const CartAddEdit = props => {
   );
 };
 
-export default CartAddEdit;
+export default CartAdd;

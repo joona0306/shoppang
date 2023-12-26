@@ -1,20 +1,52 @@
-import React from "react";
-import { CardBox, CardFormBtn, Category, Heading, Memo } from "../../styles/ComponentsStyles";
-import { SmallBtnStyles } from "../../styles/LayoutStyles";
+import { useState } from "react";
+import {
+  CardBox,
+  CardContainer,
+  CardFormBtn,
+  Category,
+  Heading,
+  Memo,
+} from "../../styles/ComponentsStyles";
+import BtnDel from "./BtnDel";
+import BtnEdit from "./BtnEdit";
+import {
+  putProduct,
+  getProduct,
+  patchProduct,
+  deleteProduct,
+} from "../../api/product/product_api";
 
+const CardForm = ({ item, onCardDelete, userPk }) => {
+  const [productPk, setProductPk] = useState(item.productPk);
 
-const CardForm = props => {
-  const item = props.item;
+  const handleCardSelect = event => {
+    // setProductPk(selectedProductPk);
+    patchProduct(userPk, item.productPk);
+  };
+
+  const handleEdit = async (productPk, userPk, categoryPk, productNm, memo) => {
+    const payload = { userPk, productNm, categoryPk, memo, productPk };
+    // console.log(payload);
+    await putProduct(payload);
+  };
+  const handleDelete = async (productPk, userPk) => {
+    await deleteProduct(userPk, productPk);
+  };
+  console.log(userPk, productPk);
   return (
-    <CardBox>
-      <Heading>{item.productNm}</Heading>
-      <Category>{item.categoryNm}</Category>
-      <Memo>{item.memo}</Memo>
-      <CardFormBtn>
-        <SmallBtnStyles type="button">수정</SmallBtnStyles>
-        <SmallBtnStyles type="button">삭제</SmallBtnStyles>
-      </CardFormBtn>
-    </CardBox>
+    <>
+      <CardContainer>
+        <CardBox item={item}>
+          <Heading>{item.productNm}</Heading>
+          <Category>{item.categoryNm}</Category>
+          <Memo>{item.memo}</Memo>
+          <CardFormBtn>
+            <BtnEdit item={item} onClick={handleEdit} />
+            <BtnDel userPk={userPk} productPk={productPk} />
+          </CardFormBtn>
+        </CardBox>
+      </CardContainer>
+    </>
   );
 };
 

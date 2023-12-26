@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getProduct, postProduct } from "../../api/product/product_api";
-import BtnAll from "../../components/card/BtnAll";
-import BtnComplete from "../../components/card/BtnComplete";
-import BtnList from "../../components/card/BtnList";
+
 import Header from "../../components/header/Header";
 import Main from "../../components/main/Main";
 import SideBar from "../../components/sidebar/SideBar";
@@ -14,7 +12,9 @@ import {
 } from "../../styles/LayoutStyles";
 import CardForm from "../../components/card/CardForm";
 import CardComplete from "../../components/card/CardComplete";
-import CartAddEdit from "../../components/modal/CartAddEdit";
+import CartAdd from "../../components/modal/CartAdd";
+import { CardContainer } from "../../styles/ComponentsStyles";
+
 const initPlanData = [];
 const CartAll = () => {
   const [data, setData] = useState([]);
@@ -83,21 +83,10 @@ const CartAll = () => {
             </UiIconStyle>
             <h2>장바구니 모든목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
-            <CartAddEdit btnAct="등록하기" handleClick={handleClickPlanGet} />
+            <CartAdd btnAct="등록하기" handleClick={handleClickPlanGet} />
           </TitleStyle>
-          <ContainerStyle>
-            {/* 페이지 버튼 삭제 */}
-            {/* <BtnAll>
-              <div
-                onClick={() => {
-                  handleClickGet();
-                }}
-              ></div>
-            </BtnAll>
-            <BtnList />
-            <BtnComplete /> */}
-          </ContainerStyle>
-          <div>{showList()}</div>
+          <ContainerStyle></ContainerStyle>
+          <CardContainer>{showList()}</CardContainer>
         </PageLayoutStyle>
       </Main>
     </>

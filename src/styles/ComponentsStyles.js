@@ -3,11 +3,18 @@ import { Common } from "./LayoutStyles";
 import { NavLink } from "react-router-dom";
 
 // Card Component Style
+
+export const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+`;
 export const CardBox = styled.div`
   position: relative;
   width: 328px;
   height: 180px;
-  margin: 32px 40px 0px 0;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border: 1px solid ${Common.color.g600};
   border-radius: 8px;
   cursor: pointer;
@@ -57,7 +64,8 @@ export const Memo = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
+  min-height: 54px;
+  word-wrap: break-word;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -298,8 +306,9 @@ export const SelectMenu = styled(NavLink)`
   }
 `;
 export const SideBarStyle = styled.section`
-  position: relative;
-  width: 245px;
+  position: fixed;
+  overflow-x: hidden;
+  width: 30%;
   height: 950px;
 `;
 export const SideBarWrapStyle = styled.div`

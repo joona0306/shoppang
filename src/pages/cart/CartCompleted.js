@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BtnAll from "../../components/card/BtnAll";
-import BtnComplete from "../../components/card/BtnComplete";
-import BtnList from "../../components/card/BtnList";
+
 import Header from "../../components/header/Header";
 import Main from "../../components/main/Main";
 import SideBar from "../../components/sidebar/SideBar";
@@ -13,6 +11,7 @@ import {
 } from "../../styles/LayoutStyles";
 import { getProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
+import { CardContainer } from "../../styles/ComponentsStyles";
 const initPlanData = [];
 const CartCompleted = () => {
   const [data, setData] = useState([]);
@@ -50,17 +49,12 @@ const CartCompleted = () => {
             <h2>장바구니 목록</h2>
             <span>장바구니 목록을 추가하고 관리하세요</span>
           </TitleStyle>
-          <ContainerStyle>
-            {/* 페이지 버튼 삭제 */}
-            {/* <BtnAll />
-            <BtnList />
-            <BtnComplete /> */}
-          </ContainerStyle>
-          <div>
+          <ContainerStyle></ContainerStyle>
+          <CardContainer>
             {planData.map(item => (
               <CardComplete key={item.productPk} item={item} />
             ))}
-          </div>
+          </CardContainer>
         </PageLayoutStyle>
       </Main>
     </>
