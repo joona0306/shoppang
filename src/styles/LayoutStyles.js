@@ -123,7 +123,7 @@ export const SmallBtnStyles = styled.button`
   background-color: #fff;
   color: ${Common.color.p600};
   cursor: pointer;
-
+  z-index: 99999;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;

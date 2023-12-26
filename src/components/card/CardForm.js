@@ -20,15 +20,17 @@ const CardForm = ({ item, onCardDelete, userPk }) => {
   const [productPk, setProductPk] = useState(item.productPk);
 
   const handleCardSelect = event => {
-    // setProductPk(selectedProductPk);
+    // event.stopPropagation(); //
+    window.location.reload();
     patchProduct(userPk, item.productPk);
   };
 
   const handleEdit = async (productPk, userPk, categoryPk, productNm, memo) => {
     const payload = { userPk, productNm, categoryPk, memo, productPk };
-    // console.log(payload);
+    console.log(payload);
     await putProduct(payload);
   };
+
   const handleDelete = async (productPk, userPk) => {
     await deleteProduct(userPk, productPk);
   };
@@ -36,7 +38,7 @@ const CardForm = ({ item, onCardDelete, userPk }) => {
   return (
     <>
       <CardContainer>
-        <CardBox item={item}>
+        <CardBox item={item} onClick={handleCardSelect}>
           <Heading>{item.productNm}</Heading>
           <Category>{item.categoryNm}</Category>
           <Memo>{item.memo}</Memo>
