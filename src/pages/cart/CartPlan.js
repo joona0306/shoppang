@@ -13,11 +13,19 @@ import {
   UiIconStyle,
 } from "../../styles/LayoutStyles";
 import { CardContainer } from "../../styles/ComponentsStyles";
+import SearchFom from "../../components/card/SearchFom";
 
 const initPlanData = [];
 const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   const [isModal, setIsModal] = useState(true);
   const [planData, setPlanData] = useState(initPlanData);
+  //검색
+  const [search, setSearch] = useState("");
+  const [filters, setFilters] = useState(true);
+  const searchData = planData.filter(
+    item => item.productNm.replace(/\s/g, "") === search.replace(/\s/g, ""),
+  );
+
   // 사용자 pk
   // const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
@@ -51,6 +59,11 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         setUserPk={setUserPk}
         loginCheck={loginCheck}
       />
+      <SearchFom
+        setFilters={setFilters}
+        search={search}
+        setSearch={setSearch}
+      />
       <Main>
         <SideBar userPk={userPk} />
         <PageLayoutStyle>
@@ -68,9 +81,14 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
           </TitleStyle>
           <ContainerStyle> </ContainerStyle>
           <CardContainer>
-            {planData.map(item => (
-              <CardForm key={item.productPk} item={item} userPk={userPk} />
-            ))}
+            {filters &&
+              planData.map(item => (
+                <CardForm key={item.productPk} item={item} />
+              ))}
+            {!filters &&
+              searchData.map(item => (
+                <CardForm key={item.productPk} item={item} />
+              ))}
           </CardContainer>
         </PageLayoutStyle>
       </Main>
