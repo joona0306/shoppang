@@ -6,8 +6,16 @@ import {
 } from "../../styles/ComponentsStyles";
 import LoginAddEdit from "./components/LoginAddEdit";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
+import SearchFom from "./components/SearchFom";
 
-const Header = ({ setUserPk, loginCheck, setLoginCheck }) => {
+const Header = ({
+  setUserPk,
+  loginCheck,
+  setLoginCheck,
+  setFilters,
+  search,
+  setSearch,
+}) => {
   const handleLogin = () => {
     setLoginCheck(true);
     setUserPk(2);
@@ -22,6 +30,11 @@ const Header = ({ setUserPk, loginCheck, setLoginCheck }) => {
           </div>
         </Link>
         <div className="top-right">
+          <SearchFom
+            setFilters={setFilters}
+            search={search}
+            setSearch={setSearch}
+          />
           {loginCheck ? (
             <LoginAddEdit
               btnAct="로그인"

@@ -13,7 +13,7 @@ import {
   UiIconStyle,
 } from "../../styles/LayoutStyles";
 import { CardContainer } from "../../styles/ComponentsStyles";
-import SearchFom from "../../components/card/SearchFom";
+import SearchFom from "../../components/header/components/SearchFom";
 
 const initPlanData = [];
 const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
@@ -58,8 +58,6 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         setLoginCheck={setLoginCheck}
         setUserPk={setUserPk}
         loginCheck={loginCheck}
-      />
-      <SearchFom
         setFilters={setFilters}
         search={search}
         setSearch={setSearch}

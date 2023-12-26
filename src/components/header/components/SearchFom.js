@@ -1,18 +1,15 @@
 import React from "react";
-import { Common } from "../../styles/LayoutStyles";
+import { Common } from "../../../styles/LayoutStyles";
 import styled from "@emotion/styled";
 
 const SearchForm = styled.form`
-  position: fixed;
-  top: 2%;
   width: 328px;
   height: 36px;
-  z-index: 3;
-  right: 7%;
   border: 1px solid ${Common.color.g600};
   border-radius: 18px;
   display: flex;
   align-items: center;
+  margin-right: 20px;
   padding: 12px;
 
   img {
