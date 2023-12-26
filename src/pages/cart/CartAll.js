@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getProduct, postProduct } from "../../api/product/product_api";
+import {
+  deleteProduct,
+  getProduct,
+  postProduct,
+} from "../../api/product/product_api";
 
 import Header from "../../components/header/Header";
 import Main from "../../components/main/Main";
@@ -15,10 +19,12 @@ import CardComplete from "../../components/card/CardComplete";
 import CartAdd from "../../components/modal/CartAdd";
 import { CardContainer } from "../../styles/ComponentsStyles";
 import SearchFom from "../../components/card/SearchFom";
+import { getCategory } from "../../api/category/category_api";
 
 const initPlanData = [];
 const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   const [data, setData] = useState([]);
+  const [categoryData, setCategoryData] = useState([]);
   const [planData, setPlanData] = useState(initPlanData);
   // 사용자 pk
   // const [userPk, setUserPk] = useState(1);
@@ -31,21 +37,43 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
     item => item.productNm.replace(/\s/g, "") === search.replace(/\s/g, ""),
   );
 
-  const handleClickGet = () => {
-    getProduct(1, setData);
-  };
   // console.log(handleClickGet);
   const getAllProduct = () => {
-    // console.log("전체목록 불러왔다.");
+    // getCategory(setCategoryData);
+    console.log("전체목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
+  };
+
+  const handleDeleteProduct = async (event, _pk) => {
+    // alert(_pk);
+    // alert(event);
+    event.stopPropagation();
+    try {
+      await deleteProduct(userPk, _pk);
+      // window.location.reload();
+      alert("카드가 삭제되었습니다");
+      getAllProduct();
+    } catch (error) {
+      console.error("Failed to delete the product", error);
+    }
   };
 
   const showListFilter = () => {
     return searchData.map(item =>
       item.buyingCheck === 0 ? (
-        <CardForm key={item.productPk} item={item} />
+        <CardForm
+          key={item.productPk}
+          item={item}
+          getAllProduct={getAllProduct}
+          handleDeleteProduct={handleDeleteProduct}
+        />
       ) : (
-        <CardComplete key={item.productPk} item={item} />
+        <CardComplete
+          key={item.productPk}
+          item={item}
+          getAllProduct={getAllProduct}
+          handleDeleteProduct={handleDeleteProduct}
+        />
       ),
     );
   };
@@ -53,9 +81,19 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   const showList = () => {
     return planData.map(item =>
       item.buyingCheck === 0 ? (
-        <CardForm key={item.productPk} item={item} />
+        <CardForm
+          key={item.productPk}
+          item={item}
+          getAllProduct={getAllProduct}
+          handleDeleteProduct={handleDeleteProduct}
+        />
       ) : (
-        <CardComplete key={item.productPk} item={item} />
+        <CardComplete
+          key={item.productPk}
+          item={item}
+          getAllProduct={getAllProduct}
+          handleDeleteProduct={handleDeleteProduct}
+        />
       ),
     );
   };

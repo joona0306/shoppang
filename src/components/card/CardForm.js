@@ -16,15 +16,24 @@ import {
   deleteProduct,
 } from "../../api/product/product_api";
 
-const CardForm = ({ item, onCardDelete, userPk }) => {
+const CardForm = ({
+  item,
+  onCardDelete,
+  getAllProduct,
+  handleDeleteProduct,
+}) => {
+  // console.log(item);
+  // console.log(getAllProduct);
   const [productPk, setProductPk] = useState(item.productPk);
+  const userPk = item.userPk;
 
   const handleCardSelect = event => {
+    alert("장보기를 완료 하였습니다");
     // event.stopPropagation(); //
-    window.location.reload();
-    alert("장보기를 완료 하셨습니다");
-
     patchProduct(userPk, item.productPk);
+    // 새로고침 대신에 ===> 전체목록  State  dhqeodkxn
+    // window.location.reload();
+    getAllProduct();
   };
 
   const handleEdit = async (productPk, userPk, categoryPk, productNm, memo) => {
@@ -47,7 +56,11 @@ const CardForm = ({ item, onCardDelete, userPk }) => {
           <Memo>{item.memo}</Memo>
           <CardFormBtn>
             <BtnEdit item={item} onClick={handleEdit} />
-            <BtnDel userPk={userPk} productPk={productPk} />
+            <BtnDel
+              userPk={userPk}
+              productPk={productPk}
+              handleDeleteProduct={handleDeleteProduct}
+            />
           </CardFormBtn>
         </CardBox>
       </CardContainer>

@@ -49,8 +49,9 @@ const LoginModal = ({
   setLoginCheck,
   setUserPk,
 }) => {
-  const [uid, setUid] = useState("");
-  const [upw, setUpw] = useState("");
+  // 12-26 나중에 뺄것
+  const [uid, setUid] = useState("string");
+  const [upw, setUpw] = useState("string");
   const [hint, serHint] = useState(false);
 
   const handleChangeUid = e => {
@@ -86,11 +87,11 @@ const LoginModal = ({
 
   const postResult = num => {
     if (num === 1) {
-      alert("로그인 성공");
+      alert("team3님 반갑습니다");
       setLoginCheck(false);
       setUserPk(1);
     } else if (num === 0) {
-      alert("로그인 실패");
+      alert("앗, 로그인을 다시 시도해주세요");
     } else if (num === -1) {
       alert("서버 에러");
     }

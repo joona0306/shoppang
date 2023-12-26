@@ -12,7 +12,7 @@ import {
 import BtnDel from "./BtnDel";
 import { deleteProduct } from "../../api/product/product_api";
 
-const CardComplete = ({ item }) => {
+const CardComplete = ({ item, getAllProduct, handleDeleteProduct }) => {
   const getCurrentDate = () => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -27,6 +27,7 @@ const CardComplete = ({ item }) => {
 
   const handleDelete = async (productPk, userPk) => {
     await deleteProduct(userPk, productPk);
+    getAllProduct();
   };
   return (
     <CardContainer>
@@ -38,7 +39,11 @@ const CardComplete = ({ item }) => {
           <Memo>{item.memo}</Memo>
         </CardEnd>
         <CardCompleteBtn>
-          <BtnDel userPk={userPk} productPk={productPk} />
+          <BtnDel
+            userPk={userPk}
+            productPk={productPk}
+            handleDeleteProduct={handleDeleteProduct}
+          />
         </CardCompleteBtn>
       </CardBox>
     </CardContainer>

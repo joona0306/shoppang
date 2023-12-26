@@ -8,27 +8,23 @@ import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
 import { getCategory } from "../../api/category/category_api";
 
-
 const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
+  console.log(item);
   const [productNm, setProductNm] = useState(item.productNm);
   const [categoryPk, setCategoryPk] = useState(item.categoryPk);
   const [memo, setMemo] = useState(item.memo);
   const [userPk, setUserPk] = useState(1);
 
-
   const handleModalClick = e => {
     e.stopPropagation(); // 모달 내부 클릭 시 바깥으로 이벤트가 전파되지 않도록 합니다.
   };
 
-
   useEffect(() => {
-    {
-      setCategoryPk(item.categoryPk);
-      setProductNm(item.productNm);
+    setCategoryPk(item.categoryPk);
+    setProductNm(item.productNm);
 
-      setMemo(item.memo);
-      setUserPk(1);
-    }
+    setMemo(item.memo);
+    setUserPk(1);
   }, [isOpen, item]);
 
   const handleChange = e => {
@@ -48,12 +44,9 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
     handleClick(item?.productPk, userPk, categoryPk, productNm, memo);
     closeModal();
   };
-  console.log(item);
   return (
     <ModalBackStyle style={{ display: isOpen ? "block" : "none" }}>
-
       <CartModalStyle onClick={handleModalClick}>
-
         <header>장바구니 목록 수정</header>
         <input
           placeholder="상품 이름을 입력해주세요"
@@ -64,7 +57,8 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
           }}
         />
         <select
-          value={categoryPk}
+          // value={categoryPk}
+          value={item.categoryPk}
           name="cate"
           onChange={e => {
             handleChange(e);
