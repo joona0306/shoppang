@@ -84,7 +84,7 @@
     TIME / COST
   </h4>
   <p>
-    - 생각나지 않을 때 SHOPPANG
+    - 생각나지 않을 때 SHOPPANG 
   </p>
 </div>
 <div align="center">  
@@ -226,4 +226,3 @@
     </p>        
     <br/>      
 </div>
-
