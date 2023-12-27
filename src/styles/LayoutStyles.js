@@ -76,7 +76,7 @@ export const UiIconStyle = styled.div`
   display: flex;
   height: 50px;
   align-items: center;
-  /* justify-content: center; */
+
   img {
     position: relative;
     display: flex;
@@ -84,33 +84,6 @@ export const UiIconStyle = styled.div`
     height: 35px;
     margin-right: 9px;
     opacity: 80%;
-  }
-`;
-
-export const LargeBtnStyles = styled.button`
-  position: relative;
-  width: 120px;
-  height: 49px;
-  border-radius: 24px;
-  border: 1px solid ${Common.color.p600};
-  margin-right: 15px;
-  border-radius: 18px;
-
-  color: ${Common.color.g900};
-  cursor: pointer;
-
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-
-  &:hover {
-    color: ${Common.color.p600};
-    background-color: ${Common.color.p400};
-  }
-
-  &:active {
-    color: #fff;
-    background-color: ${Common.color.primary};
   }
 `;
 
@@ -123,7 +96,7 @@ export const SmallBtnStyles = styled.button`
   background-color: #fff;
   color: ${Common.color.p600};
   cursor: pointer;
-  z-index: 99999;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;

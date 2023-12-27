@@ -2,7 +2,7 @@ import React from "react";
 import { Common } from "../../../styles/LayoutStyles";
 import styled from "@emotion/styled";
 
-const SearchForm = styled.form`
+const SearchStyles = styled.form`
   width: 328px;
   height: 36px;
   border: 1px solid ${Common.color.g600};
@@ -54,7 +54,7 @@ const SearchFom = ({ search, setSearch, setFilters }) => {
   };
   return (
     <>
-      <SearchForm
+      <SearchStyles
         onSubmit={e => {
           handleSearchSb(e);
         }}
@@ -69,7 +69,7 @@ const SearchFom = ({ search, setSearch, setFilters }) => {
           }}
         />
         <button type="submit">검색</button>
-      </SearchForm>
+      </SearchStyles>
     </>
   );
 };
