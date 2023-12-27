@@ -9,7 +9,7 @@ import {
   TitleStyle,
   UiIconStyle,
 } from "../../styles/LayoutStyles";
-import { getProduct } from "../../api/product/product_api";
+import { getProduct, deleteProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
 import { CardContainer } from "../../styles/ComponentsStyles";
 import SearchFom from "../../components/header/components/SearchFom";
@@ -27,6 +27,19 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   const searchData = planData.filter(
     item => item.productNm.replace(/\s/g, "") === search.replace(/\s/g, ""),
   );
+  const handleDeleteProduct = async (event, _pk) => {
+    // alert(_pk);
+    // alert(event);
+    event.stopPropagation();
+    try {
+      await deleteProduct(userPk, _pk);
+      // window.location.reload();
+      alert("카드가 삭제되었습니다");
+      getAllProduct();
+    } catch (error) {
+      console.error("Failed to delete the product", error);
+    }
+  };
 
   const handleClickGet = () => {
     getProduct(1, setData);
@@ -49,6 +62,7 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         setFilters={setFilters}
         search={search}
         setSearch={setSearch}
+        showSearchForm={true}
       />
       <Main>
         <SideBar userPk={userPk} />
@@ -67,11 +81,21 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
           <CardContainer>
             {filters &&
               planData.map(item => (
-                <CardComplete key={item.productPk} item={item} />
+                <CardComplete
+                  key={item.productPk}
+                  item={item}
+                  getAllProduct={getAllProduct}
+                  handleDeleteProduct={handleDeleteProduct}
+                />
               ))}
             {!filters &&
               searchData.map(item => (
-                <CardComplete key={item.productPk} item={item} />
+                <CardComplete
+                  key={item.productPk}
+                  item={item}
+                  getAllProduct={getAllProduct}
+                  handleDeleteProduct={handleDeleteProduct}
+                />
               ))}
           </CardContainer>
         </PageLayoutStyle>

@@ -58,7 +58,7 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
         />
         <select
           // value={categoryPk}
-          value={item.categoryPk}
+          value={categoryPk}
           name="cate"
           onChange={e => {
             handleChange(e);

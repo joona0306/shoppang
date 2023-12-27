@@ -15,6 +15,7 @@ const Header = ({
   setFilters,
   search,
   setSearch,
+  showSearchForm,
 }) => {
   const handleLogin = () => {
     setLoginCheck(true);
@@ -30,11 +31,14 @@ const Header = ({
           </div>
         </Link>
         <div className="top-right">
-          <SearchFom
-            setFilters={setFilters}
-            search={search}
-            setSearch={setSearch}
-          />
+          {showSearchForm && (
+            <SearchFom
+              setFilters={setFilters}
+              search={search}
+              setSearch={setSearch}
+            />
+          )}
+
           {loginCheck ? (
             <LoginAddEdit
               btnAct="로그인"

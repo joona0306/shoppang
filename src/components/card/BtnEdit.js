@@ -14,8 +14,6 @@ const BtnEdit = ({ item, onClick, categoryPk, handleEdit }) => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-
-    // window.location.reload();
   };
 
   const getcateProduct = () => {
