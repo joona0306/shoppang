@@ -3,7 +3,7 @@ import ModalEdit from "./ModalEdit";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
 const CartEdit = ({ btnAct, handleClick, btn }) => {
-  console.log("CartAddEdit", handleClick);
+  // console.log("CartAddEdit", handleClick);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);

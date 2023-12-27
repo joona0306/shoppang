@@ -74,7 +74,7 @@ const LoginModal = ({
       uid.replace(/\s/g, "").length > 0 &&
       upw.replace(/\s/g, "").length > 0
     ) {
-      console.log(obj);
+      // console.log(obj);
       setUpw("");
       setUid("");
       serHint(false);

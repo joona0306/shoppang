@@ -21,7 +21,6 @@ import { CardContainer } from "../../styles/ComponentsStyles";
 
 const initPlanData = [];
 const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
-  const [categoryData, setCategoryData] = useState([]);
   const [planData, setPlanData] = useState(initPlanData);
   // 사용자 pk
 
@@ -120,16 +119,6 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
       />
       <Main>
         <SideBar userPk={userPk} />
-        {/* <div>
-          {data.map(item => (
-            <div key={item.getproduct}>
-              <p>{item.productPk} </p>
-              <p>{item.productNm} </p>
-              <p>{item.categoryNm} </p>
-              <p>{item.memo} </p>
-            </div>
-          ))}
-        </div> */}
         <PageLayoutStyle>
           <TitleStyle>
             <UiIconStyle>

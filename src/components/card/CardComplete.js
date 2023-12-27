@@ -21,11 +21,10 @@ const CardComplete = ({ item, getAllProduct, handleDeleteProduct }) => {
     alert("장본것을 취소 하였습니다");
     event.stopPropagation(); //
     await patchProduct(userPk, item.productPk);
-    // 새로고침 대신에 ===> 전체목록  State  dhqeodkxn
-    // window.location.reload();
+    // 새로고침 대신에 ===> 전체목록  State 업데이트
+
     await getAllProduct();
   };
-  // 카드를 선택했을 때의 이벤트 핸들러입니다.
 
   const handleDelete = async (productPk, userPk) => {
     await deleteProduct(userPk, productPk);
@@ -40,7 +39,6 @@ const CardComplete = ({ item, getAllProduct, handleDeleteProduct }) => {
     <CardContainer>
       <CardBox>
         <CardEnd>
-          {/* <DateText>{getCurrentDate()}</DateText> */}
           <Heading>{item.productNm}</Heading>
           <Category>{item.categoryNm}</Category>
           <Memo>{item.memo}</Memo>

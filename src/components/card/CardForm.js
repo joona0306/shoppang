@@ -6,41 +6,31 @@ import {
   Category,
   Heading,
   Memo,
-  DateText,
 } from "../../styles/ComponentsStyles";
 import BtnDel from "./BtnDel";
 import BtnEdit from "./BtnEdit";
 import {
   putProduct,
-  getProduct,
   patchProduct,
   deleteProduct,
 } from "../../api/product/product_api";
 import BtnBuy from "./BtnBuy";
-const CardForm = ({
-  item,
-  onCardDelete,
-  getAllProduct,
-  handleDeleteProduct,
-}) => {
-  // console.log(item);
-  // console.log(getAllProduct);
+const CardForm = ({ item, getAllProduct, handleDeleteProduct }) => {
   const [productPk, setProductPk] = useState(item.productPk);
   const userPk = item.userPk;
 
   const handleCardSelect = async event => {
     alert("장보기를 완료 하였습니다");
-    event.stopPropagation(); //
+    event.stopPropagation();
     await patchProduct(userPk, item.productPk);
-    // 새로고침 대신에 ===> 전체목록  State  dhqeodkxn
-    // window.location.reload();
+    // 새로고침 대신에 ===> 전체목록  State  업데이트
     await getAllProduct();
   };
 
   const handleEdit = async (productPk, userPk, categoryPk, productNm, memo) => {
     const payload = { userPk, productNm, categoryPk, memo, productPk };
 
-    console.log(payload);
+    // console.log(payload);
     await putProduct(payload);
     await getAllProduct();
   };
