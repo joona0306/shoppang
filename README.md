@@ -20,12 +20,14 @@
     </h3>
 </div>
 <div align="center">
-    ![image](https://github.com/joona0306/shoppang/assets/148061993/d6dc7461-43cd-420b-972f-857edd797563)
+    <p>
+      <img src="https://github.com/joona0306/shoppang/assets/148061993/d6dc7461-43cd-420b-972f-857edd797563"/>
+    </p>
 </div>
 <div align="center">
     <span>
         🔹
-        <a herf="" target="_blank">
+        <a herf="https://www.youtube.com/watch?v=QSKiyPgRrgo" target="_blank">
             시연 영상 바로가기
         </a>
     </span>
