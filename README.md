@@ -151,10 +151,10 @@
      - HEADER 컴포넌트
     </p>
     <p>
-     - Login 기능 구현
+     - Login CRUD 처리 작업
     </p>
     <p>
-     - Search 기능 구현
+     - Search CRUD 처리 작업
     </p>        
     <br/>
   <span>
@@ -164,34 +164,13 @@
     <br />
     <p><b>✔ 담당파트 : </b></p>    
     <p>
-      - Main 캘린더 및 데이터 연동 작업
+      - Card, Button 컴포넌트 
     </p>
     <p>
-      - MY TODO CRUD 처리 작업
+      - Cart list CRUD 처리 작업
     </p>
     <p>
       - DIARY CRUD 처리 작업
-    </p>
-    <p>
-      - Img 컴포넌트 onError 처리 작업
-    </p>
-    <p>
-      - Intro 페이지 퍼블리싱
-    </p>
-    <p>
-      - Main 페이지 퍼블리싱
-    </p>
-    <p>
-      - MY PLANT 목록 페이지 퍼블리싱
-    </p>
-    <p>
-      - MT TODO 목록 페이지 퍼블리싱
-    </p>
-    <p>
-      - DIARY 목록 및 상세 페이지 퍼블리싱
-    </p>
-    <p>
-      - Not Found 페이지 퍼블리싱
     </p>
     <span>
       <b>박유민</b>
@@ -200,13 +179,13 @@
     <br />
     <p><b>✔ 담당파트 : </b></p>
     <p>
-     - HEADER 컴포넌트
+     - Side bar 컴포넌트
     </p>
     <p>
-     - Login 기능 구현
+     - 메뉴 페이지 전환 작업
     </p>
     <p>
-     - Search 기능 구현
+     - 페이지 CRUD 처리 작업
     </p>        
     <br/>
     <span>
@@ -216,14 +195,13 @@
     <br />
     <p><b>✔ 담당파트 : </b></p>
     <p>
-     - HEADER 컴포넌트
+     - Modal 컴포넌트
     </p>
     <p>
-     - Login 기능 구현
+     - 프로젝트 기획 및 디자인
     </p>
     <p>
-     - Search 기능 구현
+     - github 관리
     </p>        
     <br/>      
 </div>
-
