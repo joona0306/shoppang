@@ -9,6 +9,7 @@ export const postSignin = async (obj, postResult) => {
     // console.log(res.data.result);
     postResult(res.data.result);
   } catch (error) {
+    window.location.href = "/";
     postResult(1);
   }
 };

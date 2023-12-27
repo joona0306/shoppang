@@ -7,6 +7,6 @@ export const postSignup = async () => {
   try {
     const res = await axios.post(`${path}`);
   } catch (error) {
-    console.log(error);
+    window.location.href = "/";
   }
 };

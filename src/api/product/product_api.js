@@ -11,6 +11,7 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
     setPlanData(res.data);
   } catch (error) {
     console.log(error);
+    window.location.href = "/";
   }
 };
 export const postProduct = async (obj, getAllProduct) => {
@@ -25,14 +26,16 @@ export const postProduct = async (obj, getAllProduct) => {
     }
   } catch (error) {
     console.log(error);
+    window.location.href = "/";
   }
 };
 export const putProduct = async payload => {
   try {
     const res = await axios.put(`${path}`, payload);
-    payload(res.data);
+    return res;
   } catch (error) {
     console.log(error);
+    window.location.href = "/";
   }
 };
 export const patchProduct = async (userPk, productPk) => {
@@ -43,6 +46,7 @@ export const patchProduct = async (userPk, productPk) => {
     return res;
   } catch (error) {
     console.log(error);
+    window.location.href = "/";
   }
 };
 
@@ -54,5 +58,6 @@ export const deleteProduct = async (userPk, productPk) => {
     return res;
   } catch (error) {
     console.log(error);
+    window.location.href = "/";
   }
 };
