@@ -41,7 +41,7 @@
 </div>
 <div align="center">
     <span>
-        <a href="" target="_blank">
+        <a href="http://192.168.0.144:5213/" target="_blank">
             사이트 바로가기
         </a>    
     </span>
