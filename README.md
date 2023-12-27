@@ -20,7 +20,7 @@
     </h3>
 </div>
 <div align="center">
-    ![시연영상](https://github.com/joona0306/shoppang/assets/148061993/d6dc7461-43cd-420b-972f-857edd797563)
+    ![image](https://github.com/joona0306/shoppang/assets/148061993/d6dc7461-43cd-420b-972f-857edd797563)
 </div>
 <div align="center">
     <span>
