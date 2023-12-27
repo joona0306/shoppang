@@ -23,8 +23,8 @@ export const CardEnd = styled.div`
   position: relative;
   height: 115px;
 
-  background: #a8a8a8;
-  opacity: 0.4;
+  background: ${Common.color.g400};
+  opacity: 0.5;
 
   border-radius: 8px 8px 0px 0px;
 `;
@@ -34,7 +34,7 @@ export const DateText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  font-size: 42px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 50px;
   color: #fff;
@@ -77,9 +77,6 @@ export const CardFormBtn = styled.div`
   display: flex;
   gap: 12px;
 
-  padding: 12px 0px 0px 16px;
-`;
-export const CardCompleteBtn = styled.div`
   padding: 12px 0px 0px 16px;
 `;
 
