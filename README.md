@@ -20,7 +20,7 @@
     </h3>
 </div>
 <div align="center">
-    ![image](http://)
+    ![image](/public/assets/images/readme_images/시연영상.mp4)
 </div>
 <div align="center">
     <span>
