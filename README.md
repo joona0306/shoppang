@@ -1,16 +1,12 @@
-<div align= "center">
+<div align= "center" style="border-bottom: 1px solid #d8dee4; color: #282d33;">
     <img src="./public/assets/images/readme_images/최종logo_3.svg" />
 </div>
-<div align= "center"> 
-    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"></h2>  
-    <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;"></div> 
-</div>
+<br/>
+
 <div align = "center">
     <p>프론트엔드 & 백엔드 협업 프로젝트</p>
     <h4>나만의 장바구니 리스트 관리</h4>
     <h1>SHOPPANG</h1>
-</div>
-<div align="center">
     <h2>
         :clapper:<br/>
         Project demo video
@@ -18,48 +14,35 @@
     <h3>
         시연 영상
     </h3>
-</div>
-<div align="center">
     <p>
       <img src="https://github.com/joona0306/shoppang/assets/148061993/d6dc7461-43cd-420b-972f-857edd797563"/>
     </p>
-</div>
-<div align="center">
     <span>
         🔹
         <a herf="https://www.youtube.com/watch?v=QSKiyPgRrgo" target="_blank">
             시연 영상 바로가기
         </a>
     </span>
-</div>
 <br/><br/>
-<div align="center">
     <h2>
         🌱
         <br/>
         Deploy
     </h2>
     <h3>배포</h3>
-</div>
-<div align="center">
     <span>
         <a href="http://192.168.0.144:5213/" target="_blank">
             사이트 바로가기
-        </a>    
+        </a>
     </span>
-</div>
-<div align="center">
     <h2>
         🍀<br/>
         Introduce<br/>
     <h2>
-</div>
-<div align="center">
   <h3>
     개요
   </h3>
-</div>
-<div align="center">
+
   <h4>
     :heavy_check_mark:
     당신의 장바구니를 채워드립니다.
@@ -88,8 +71,7 @@
   <p>
     - 생각나지 않을 때 SHOPPANG 
   </p>
-</div>
-<div align="center">  
+
   <h2>
     :calendar:<br/>
     Project period
@@ -97,13 +79,11 @@
   <h3>
     프로젝트 기간
   </h3>
-</div>
-<div align="center"> 
+
   <p>
     🔸 <b>23-12-08 ~ 23-12-28</b>
   </p>
-</div>
-<div align="center">  
+
   <h2>
     :file_folder:<br/>
     Project info
@@ -111,9 +91,7 @@
   <h3>
     프로젝트 정보
   </h3>
-</div>
-<div align= "center">
-    <h3 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🛠️ Tech Stacks </h3> <br> 
+    <h3 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🛠️ Tech Stacks </h3> <br>
     <div style="margin: 0 auto; text-align: center;" align= "center">
         <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
         <img src="https://img.shields.io/badge/Eslint-4B32C3?style=for-the-badge&logo=Eslint&logoColor=white">
@@ -129,8 +107,7 @@
         <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white">
         <img src="https://img.shields.io/badge/StyledComponents-DB7093?style=for-the-badge&logo=StyledComponents&logoColor=white">
     </div>
-</div>
-<div align="center">  
+
   <h2>
     :running:<br/>
     Members
@@ -138,8 +115,7 @@
   <h3>
     멤버 구성
   </h3>
-</div>
-<div align="center">  
+
   <h4>
     <b>[Front-end]</b>
   </h4>
