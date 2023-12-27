@@ -1,37 +1,61 @@
-import React from "react";
-import { SmallBtnStyles } from "../../styles/LayoutStyles";
-import { CardBox, CardCompleteBtn, CardEnd, Category, DateText, Heading, Memo } from "../../styles/ComponentsStyles";
+import { useState } from "react";
+import {
+  CardBox,
+  CardFormBtn,
+  CardContainer,
+  CardEnd,
+  Category,
+  DateText,
+  Heading,
+  Memo,
+} from "../../styles/ComponentsStyles";
+import BtnDel from "./BtnDel";
+import BtnCancel from "./BtnCancel";
+import { deleteProduct, patchProduct } from "../../api/product/product_api";
 
+const CardComplete = ({ item, getAllProduct, handleDeleteProduct }) => {
+  const [productPk, setProductPk] = useState(item.productPk);
+  const userPk = item.userPk;
 
-const CardComplete = () => {
-  const getCurrentDate = () => {
-    const currentDate = new Date();
+  const handleCardSelect = async event => {
+    alert("장본것을 취소 하였습니다");
+    event.stopPropagation(); //
+    await patchProduct(userPk, item.productPk);
+    // 새로고침 대신에 ===> 전체목록  State  dhqeodkxn
+    // window.location.reload();
+    await getAllProduct();
+  };
+  // 카드를 선택했을 때의 이벤트 핸들러입니다.
 
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
+  const handleDelete = async (productPk, userPk) => {
+    await deleteProduct(userPk, productPk);
+    getAllProduct();
+  };
 
-    return `${year}.${month}.${day}`;
+  const handleCancelProduct = async (productPk, userPk) => {
+    await patchProduct(userPk, productPk);
   };
 
   return (
-    <CardBox>
-      <CardEnd>
-        <DateText>{getCurrentDate()}</DateText>
-
-        <Heading>상품이름</Heading>
-        <Category>카테고리</Category>
-
-        <Memo>
-          Memo: Supporting or descriptive text for the card goes here like a
-          pro. Memo: Supporting or descriptive text for the card goes here like
-          a pro.
-        </Memo>
-      </CardEnd>
-      <CardCompleteBtn>
-        <SmallBtnStyles type="button">삭제</SmallBtnStyles>
-      </CardCompleteBtn>
-    </CardBox>
+    <CardContainer>
+      <CardBox>
+        <CardEnd>
+          {/* <DateText>{getCurrentDate()}</DateText> */}
+          <Heading>{item.productNm}</Heading>
+          <Category>{item.categoryNm}</Category>
+          <Memo>{item.memo}</Memo>
+          <DateText>{item.buyingDate}</DateText>
+        </CardEnd>
+        <CardFormBtn>
+          <BtnDel
+            userPk={userPk}
+            productPk={productPk}
+            handleDeleteProduct={handleDeleteProduct}
+          />
+          <BtnCancel item={item} handleCancelProduct={handleCardSelect} />
+        </CardFormBtn>
+      </CardBox>
+    </CardContainer>
   );
 };
 
