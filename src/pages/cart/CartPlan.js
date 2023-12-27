@@ -17,11 +17,9 @@ import {
   UiIconStyle,
 } from "../../styles/LayoutStyles";
 import { CardContainer } from "../../styles/ComponentsStyles";
-import SearchFom from "../../components/header/components/SearchFom";
 
 const initPlanData = [];
 const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
-  const [isModal, setIsModal] = useState(true);
   const [planData, setPlanData] = useState(initPlanData);
   //검색
   const [search, setSearch] = useState("");
@@ -37,18 +35,12 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   const [choiceList, setChoiceList] = useState(1);
 
   const getPlanProduct = () => {
-    // getCategory(setCategoryData);
-    // console.log("전체목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
   };
   const handleDeleteProduct = async (event, _pk) => {
-    // alert(_pk);
-    // alert(event);
-
     event.stopPropagation();
     try {
       await deleteProduct(userPk, _pk);
-      // window.location.reload();
       alert("카드가 삭제되었습니다");
       getPlanProduct();
     } catch (error) {

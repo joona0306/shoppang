@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {
-  CartModalStyle,
-  ModalBackStyle,
-  ModalBtnsWrapStyle,
-} from "../../styles/ComponentsStyles";
+import { CartModalStyle, ModalBackStyle } from "../../styles/ComponentsStyles";
 import { SmallBtnStyles } from "../../styles/LayoutStyles";
 
-import { getCategory } from "../../api/category/category_api";
-
-const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
-  console.log(item);
+const ModalEdit = ({ isOpen, closeModal, item, handleClick }) => {
   const [productNm, setProductNm] = useState(item.productNm);
   const [categoryPk, setCategoryPk] = useState(item.categoryPk);
   const [memo, setMemo] = useState(item.memo);
   const [userPk, setUserPk] = useState(1);
 
   const handleModalClick = e => {
-    e.stopPropagation(); // 모달 내부 클릭 시 바깥으로 이벤트가 전파되지 않도록 합니다.
+    e.stopPropagation();
   };
 
   useEffect(() => {
@@ -34,7 +27,7 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
     if (targetName === "product") {
       setProductNm(value);
     } else if (targetName === "cate") {
-      setCategoryPk(value); // 숫자로 변환
+      setCategoryPk(value);
     } else if (targetName === "memo") {
       setMemo(value);
     }
@@ -57,7 +50,6 @@ const ModalEdit = ({ isOpen, closeModal, item, handleClick, UserPk }) => {
           }}
         />
         <select
-          // value={categoryPk}
           value={categoryPk}
           name="cate"
           onChange={e => {

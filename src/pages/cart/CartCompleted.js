@@ -12,10 +12,8 @@ import {
 import { getProduct, deleteProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
 import { CardContainer } from "../../styles/ComponentsStyles";
-import SearchFom from "../../components/header/components/SearchFom";
 const initPlanData = [];
 const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
-  const [data, setData] = useState([]);
   const [planData, setPlanData] = useState(initPlanData);
   // 사용자 pk
   // const [userPk, setUserPk] = useState(1);
@@ -33,7 +31,6 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
     event.stopPropagation();
     try {
       await deleteProduct(userPk, _pk);
-      // window.location.reload();
       alert("카드가 삭제되었습니다");
       getAllProduct();
     } catch (error) {
@@ -41,10 +38,6 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
     }
   };
 
-  const handleClickGet = () => {
-    getProduct(1, setData);
-  };
-  // console.log(handleClickGet);
   const getAllProduct = () => {
     // console.log("구매확정 목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);

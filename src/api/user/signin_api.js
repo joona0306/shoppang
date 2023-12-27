@@ -6,7 +6,7 @@ const path = `${SERVER_URL}/api/user/signin`;
 export const postSignin = async (obj, postResult) => {
   try {
     const res = await axios.post(`${path}`, obj);
-    console.log(res.data.result);
+    // console.log(res.data.result);
     postResult(res.data.result);
   } catch (error) {
     postResult(1);

@@ -3,7 +3,7 @@ import { SmallBtnStyles } from "../../styles/LayoutStyles";
 import ModalEdit from "../modal/ModalEdit";
 
 import { getCategory } from "../../api/category/category_api";
-const BtnEdit = ({ item, onClick, categoryPk, handleEdit }) => {
+const BtnEdit = ({ item, onClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = event => {
@@ -14,10 +14,6 @@ const BtnEdit = ({ item, onClick, categoryPk, handleEdit }) => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-  };
-
-  const getcateProduct = () => {
-    getCategory(categoryPk);
   };
 
   return (

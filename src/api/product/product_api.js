@@ -8,82 +8,15 @@ export const getProduct = async (userPk, choiceList, setPlanData) => {
     const res = await axios.get(
       `${path}?userPk=${userPk}&choiceList=${choiceList}`,
     );
-    // console.log(res.data);
     setPlanData(res.data);
   } catch (error) {
-    setPlanData([
-      {
-        productPk: 1,
-        userPk: 1,
-        productNm: "상ddd품명",
-        categoryNm: "기타",
-        memo: "메모메모메모메모메모메모메모메모메모모메모",
-        createdAt: "2023-12-19 15:56:43",
-        buyingCheck: 0,
-        buyingDate: null,
-      },
-      {
-        productPk: 2,
-        userPk: 1,
-        productNm: "고기",
-        categoryNm: "생필품",
-        memo: "맛있다",
-        createdAt: "2023-12-19 16:34:18",
-        buyingCheck: 0,
-        buyingDate: null,
-      },
-      {
-        productPk: 3,
-        userPk: 1,
-        productNm: "라면",
-        categoryNm: "생필품",
-        memo: "맛없다",
-        createdAt: "2023-12-19 16:35:05",
-        buyingCheck: 0,
-        buyingDate: null,
-      },
-      {
-        productPk: 4,
-        userPk: 1,
-        productNm: "치약",
-        categoryNm: "기타",
-        memo: "얼마지?",
-        createdAt: "2023-12-19 16:36:17",
-        buyingCheck: 0,
-        buyingDate: null,
-      },
-      {
-        productPk: 5,
-        userPk: 1,
-        productNm: "짜장면",
-        categoryNm: "생필품",
-        memo: "맛있다",
-        createdAt: "2023-12-19 16:59:30",
-        buyingCheck: 0,
-        buyingDate: null,
-      },
-      {
-        productPk: 6,
-        userPk: 1,
-        productNm: "청소기",
-        categoryNm: "기타",
-        memo: "작업중",
-        createdAt: "2023-12-19 17:09:46",
-        buyingCheck: 0,
-        buyingDate: null,
-      },
-      // console.log(error);
-      // alert("서버가 불안정합니다. 잠시후 시도해 주세요.");
-    ]);
+    console.log(error);
   }
 };
 export const postProduct = async (obj, getAllProduct) => {
-  // console.log("postProduct", obj);
   try {
     const res = await axios.post(`${path}`, obj);
-    // console.log(res.data);
     const st = res.status.toString();
-    // console.log(st);
     if (st.charAt(0) === "2") {
       alert("등록에 성공했습니다.");
       getAllProduct();
@@ -97,8 +30,6 @@ export const postProduct = async (obj, getAllProduct) => {
 export const putProduct = async payload => {
   try {
     const res = await axios.put(`${path}`, payload);
-    // console.log(`api:${payload}`);
-    // console.log(res.data);
     payload(res.data);
   } catch (error) {
     console.log(error);
