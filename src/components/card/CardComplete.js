@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   CardBox,
-  CardCompleteBtn,
+  CardFormBtn,
   CardContainer,
   CardEnd,
   Category,
@@ -10,41 +10,50 @@ import {
   Memo,
 } from "../../styles/ComponentsStyles";
 import BtnDel from "./BtnDel";
-import { deleteProduct } from "../../api/product/product_api";
+import BtnCancel from "./BtnCancel";
+import { deleteProduct, patchProduct } from "../../api/product/product_api";
 
 const CardComplete = ({ item, getAllProduct, handleDeleteProduct }) => {
-  const getCurrentDate = () => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
-    return `${year}.${month}.${day}`;
-  };
   const [productPk, setProductPk] = useState(item.productPk);
-  const [userPk] = useState(1);
+  const userPk = item.userPk;
 
+  const handleCardSelect = async event => {
+    alert("장본것을 취소 하였습니다");
+    event.stopPropagation(); //
+    await patchProduct(userPk, item.productPk);
+    // 새로고침 대신에 ===> 전체목록  State  dhqeodkxn
+    // window.location.reload();
+    await getAllProduct();
+  };
   // 카드를 선택했을 때의 이벤트 핸들러입니다.
 
   const handleDelete = async (productPk, userPk) => {
     await deleteProduct(userPk, productPk);
     getAllProduct();
   };
+
+  const handleCancelProduct = async (productPk, userPk) => {
+    await patchProduct(userPk, productPk);
+  };
+
   return (
     <CardContainer>
       <CardBox>
         <CardEnd>
-          <DateText>{getCurrentDate()}</DateText>
+          {/* <DateText>{getCurrentDate()}</DateText> */}
           <Heading>{item.productNm}</Heading>
           <Category>{item.categoryNm}</Category>
           <Memo>{item.memo}</Memo>
+          <DateText>{item.buyingDate}</DateText>
         </CardEnd>
-        <CardCompleteBtn>
+        <CardFormBtn>
           <BtnDel
             userPk={userPk}
             productPk={productPk}
             handleDeleteProduct={handleDeleteProduct}
           />
-        </CardCompleteBtn>
+          <BtnCancel item={item} handleCancelProduct={handleCardSelect} />
+        </CardFormBtn>
       </CardBox>
     </CardContainer>
   );

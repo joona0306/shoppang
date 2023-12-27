@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getProduct, postProduct } from "../../api/product/product_api";
+import {
+  getProduct,
+  postProduct,
+  deleteProduct,
+} from "../../api/product/product_api";
 
 import CardForm from "../../components/card/CardForm";
 import Header from "../../components/header/Header";
@@ -29,15 +33,31 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   // 사용자 pk
   // const [userPk, setUserPk] = useState(1);
   // 보기방식 정의 장바구니 표시 설정
+
   const [choiceList, setChoiceList] = useState(1);
 
-  const getAllProduct = () => {
-    // console.log("구매예정 목록 불러왔다.");
+  const getPlanProduct = () => {
+    // getCategory(setCategoryData);
+    // console.log("전체목록 불러왔다.");
     getProduct(userPk, choiceList, setPlanData);
+  };
+  const handleDeleteProduct = async (event, _pk) => {
+    // alert(_pk);
+    // alert(event);
+
+    event.stopPropagation();
+    try {
+      await deleteProduct(userPk, _pk);
+      // window.location.reload();
+      alert("카드가 삭제되었습니다");
+      getPlanProduct();
+    } catch (error) {
+      console.error("Failed to delete the product", error);
+    }
   };
 
   useEffect(() => {
-    getAllProduct();
+    getPlanProduct();
   }, [userPk]);
 
   const handleClickPlanGet = (productNm, categoryPk, memo) => {
@@ -48,7 +68,7 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         productNm: productNm,
         memo: memo,
       },
-      getAllProduct,
+      getPlanProduct,
     );
   };
 
@@ -61,6 +81,7 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         setFilters={setFilters}
         search={search}
         setSearch={setSearch}
+        showSearchForm={true}
       />
       <Main>
         <SideBar userPk={userPk} />
@@ -81,11 +102,21 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
           <CardContainer>
             {filters &&
               planData.map(item => (
-                <CardForm key={item.productPk} item={item} />
+                <CardForm
+                  key={item.productPk}
+                  item={item}
+                  getAllProduct={getPlanProduct}
+                  handleDeleteProduct={handleDeleteProduct}
+                />
               ))}
             {!filters &&
               searchData.map(item => (
-                <CardForm key={item.productPk} item={item} />
+                <CardForm
+                  key={item.productPk}
+                  item={item}
+                  getAllProduct={getPlanProduct}
+                  handleDeleteProduct={handleDeleteProduct}
+                />
               ))}
           </CardContainer>
         </PageLayoutStyle>
