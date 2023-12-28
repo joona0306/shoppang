@@ -12,6 +12,7 @@ import {
 import { getProduct, deleteProduct } from "../../api/product/product_api";
 import CardComplete from "../../components/card/CardComplete";
 import { CardContainer } from "../../styles/ComponentsStyles";
+import { useNavigate } from "react-router-dom";
 const initPlanData = [];
 const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   const [planData, setPlanData] = useState(initPlanData);
@@ -30,7 +31,7 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
     // alert(event);
     event.stopPropagation();
     try {
-      await deleteProduct(userPk, _pk);
+      await deleteProduct(userPk, _pk, failFn);
       alert("카드가 삭제되었습니다");
       getAllProduct();
     } catch (error) {
@@ -40,7 +41,13 @@ const CartCompleted = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
 
   const getAllProduct = () => {
     // console.log("구매확정 목록 불러왔다.");
-    getProduct(userPk, choiceList, setPlanData);
+    getProduct(userPk, choiceList, setPlanData, failFn);
+  };
+
+  const navigate = useNavigate();
+  const failFn = () => {
+    // alert("잠시 서버가 불안정합니다. \n다시 시도하세요.");
+    navigate("/");
   };
 
   useEffect(() => {

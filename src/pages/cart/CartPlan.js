@@ -17,6 +17,7 @@ import {
   UiIconStyle,
 } from "../../styles/LayoutStyles";
 import { CardContainer } from "../../styles/ComponentsStyles";
+import { useNavigate } from "react-router-dom";
 
 const initPlanData = [];
 const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
@@ -35,12 +36,19 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
   const [choiceList, setChoiceList] = useState(1);
 
   const getPlanProduct = () => {
-    getProduct(userPk, choiceList, setPlanData);
+    getProduct(userPk, choiceList, setPlanData, failFn);
   };
+
+  const navigate = useNavigate();
+  const failFn = () => {
+    // alert("잠시 서버가 불안정합니다. \n다시 시도하세요.");
+    navigate("/");
+  };
+
   const handleDeleteProduct = async (event, _pk) => {
     event.stopPropagation();
     try {
-      await deleteProduct(userPk, _pk);
+      await deleteProduct(userPk, _pk, failFn);
       alert("카드가 삭제되었습니다");
       getPlanProduct();
     } catch (error) {
@@ -61,6 +69,7 @@ const CartPlan = ({ userPk, setLoginCheck, setUserPk, loginCheck }) => {
         memo: memo,
       },
       getPlanProduct,
+      failFn,
     );
   };
 

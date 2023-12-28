@@ -18,6 +18,7 @@ import CardForm from "../../components/card/CardForm";
 import CardComplete from "../../components/card/CardComplete";
 import CartAdd from "../../components/modal/CartAdd";
 import { CardContainer } from "../../styles/ComponentsStyles";
+import { useNavigate } from "react-router-dom";
 
 const initPlanData = [];
 const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
@@ -34,7 +35,12 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
   );
 
   const getAllProduct = () => {
-    getProduct(userPk, choiceList, setPlanData);
+    getProduct(userPk, choiceList, setPlanData, failFn);
+  };
+  const navigate = useNavigate();
+  const failFn = () => {
+    // alert("잠시 서버가 불안정합니다. \n다시 시도하세요.");
+    navigate("/");
   };
 
   const handleDeleteProduct = async (event, _pk) => {
@@ -42,7 +48,7 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
     // alert(event);
     event.stopPropagation();
     try {
-      await deleteProduct(userPk, _pk);
+      await deleteProduct(userPk, _pk, failFn);
       // window.location.reload();
       alert("카드가 삭제되었습니다");
       getAllProduct();
@@ -103,6 +109,7 @@ const CartAll = ({ userPk, setUserPk, loginCheck, setLoginCheck }) => {
         memo: memo,
       },
       getAllProduct,
+      failFn,
     );
   };
 

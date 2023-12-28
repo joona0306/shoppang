@@ -6,6 +6,7 @@ import {
 import { postSignin } from "../../../api/user/signin_api";
 import styled from "@emotion/styled";
 import { SmallBtnStyles } from "../../../styles/LayoutStyles";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = styled.form`
   b {
@@ -79,10 +80,15 @@ const LoginModal = ({
       setUid("");
       serHint(false);
       closeModal(true);
-      postSignin(obj, postResult);
+      postSignin(obj, postResult, failFn);
     } else {
       serHint(true);
     }
+  };
+  const navigate = useNavigate();
+  const failFn = () => {
+    // alert("잠시 서버가 불안정합니다. \n다시 시도하세요.");
+    navigate("/");
   };
 
   const postResult = num => {
