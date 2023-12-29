@@ -27,7 +27,7 @@ const SideBar = ({ userPk }) => {
           </LoginStyle>
           {/* 서비스 소개 */}
           <MenuStyle>
-            <p>Abbout</p>
+            <p>About</p>
             <ul>
               <li>
                 <SelectMenu to="/about">
